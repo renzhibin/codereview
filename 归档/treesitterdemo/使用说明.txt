@@ -1,0 +1,35 @@
+==================================================
+✅ Tree-sitter 调用链分析器 - 使用说明
+==================================================
+
+1. 快速使用：
+   python3 callchain.py
+
+2. 指定项目：
+   python3 callchain.py /path/to/java/src
+
+3. 实际效果：
+   ✅ 能找到方法定义
+   ✅ 能追踪方法调用
+   ✅ 能查找完整调用链
+   ✅ 支持递归追踪
+
+4. 示例输出：
+   📥 谁调用了 'findById':
+   └─ getUserById (UserController.java:24)
+   
+   📤 'getUserById' 调用了:
+   └─ findById
+   └─ get
+   └─ getId
+   ...
+   
+   🔗 'getUserById' → 'findById':
+   ✅ 1 条路径: getUserById → findById
+
+5. 文件说明：
+   - callchain.py (推荐使用)
+   - work_analyzer.py (同上)
+   - install.sh (安装依赖)
+
+==================================================
