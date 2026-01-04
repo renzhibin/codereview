@@ -1,0 +1,13 @@
+--- before.java	2025-12-31 09:02:36.855542539 +0800
++++ after.java	2025-12-31 09:24:54.003991182 +0800
+@@ -1,5 +1,7 @@
+ public class PriceCalculator {
+-    public boolean isPriceEqual(BigDecimal price1, BigDecimal price2) {
+-        return price1.compareTo(price2) == 0;
++    private static final double TOLERANCE = 0.01;
++    
++    public boolean isPriceEqual(double price1, double price2) {
++        return Math.abs(price1 - price2) < TOLERANCE;
+     }
+ }
+\ No newline at end of file

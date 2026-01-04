@@ -1,0 +1,8 @@
+{
+  "case_id": "positive_GatewayAuth",
+  "dimension": "Q07_VerticalPrivilege",
+  "should_detect": false,
+  "target_issues": [],
+  "severity": "info",
+  "description": "依赖网关层鉴权的内部接口"
+}

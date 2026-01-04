@@ -1,0 +1,12 @@
+{
+  "case_id": "negative_CascadeNPE",
+  "dimension": "Q01_Functionality",
+  "should_detect": true,
+  "target_issues": [
+    "空指针异常",
+    "NPE",
+    "级联调用"
+  ],
+  "severity": "critical",
+  "description": "级联调用导致的空指针异常"
+}

@@ -1,0 +1,12 @@
+{
+  "case_id": "negative_UserDeleteUser",
+  "dimension": "Q07_VerticalPrivilege",
+  "rule_id": "RBAC_001",
+  "severity": "critical",
+  "should_detect": true,
+  "target_issues": [
+    "垂直越权",
+    "缺少角色验证",
+    "普通用户可删除用户"
+  ]
+}

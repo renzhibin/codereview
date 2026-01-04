@@ -1,0 +1,9 @@
+{
+  "case_id": "positive_sleep",
+  "dimension": "Q04_Performance",
+  "rule_id": "REAL_TRAP",
+  "severity": "info",
+  "should_detect": false,
+  "target_issues": [],
+  "description": "看起来有sleep，实际是业务限流需要"
+}

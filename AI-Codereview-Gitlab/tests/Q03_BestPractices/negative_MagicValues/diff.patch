@@ -1,0 +1,17 @@
+--- before.java	2025-12-31 09:37:08.814009770 +0800
++++ after.java	2025-12-31 09:37:50.879600113 +0800
+@@ -1,9 +1,11 @@
+ public class OrderService {
+     public void process(Order order) {
+-        if (order.getStatus() == OrderStatus.PAID) {
++        if (order.getStatus() == 1) {
+             ship(order);
+-        } else if (order.getStatus() == OrderStatus.CANCELLED) {
++        } else if (order.getStatus() == 2) {
+             refund(order);
++        } else if (order.getStatus() == 3) {
++            archive(order);
+         }
+     }
+ }
+\ No newline at end of file

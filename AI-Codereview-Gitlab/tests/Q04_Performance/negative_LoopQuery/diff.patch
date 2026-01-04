@@ -1,0 +1,18 @@
+--- before.java	2025-12-31 09:37:08.889126629 +0800
++++ after.java	2025-12-31 09:37:50.880794733 +0800
+@@ -1,6 +1,12 @@
+ public class OrderService {
+     public List<OrderDTO> getOrders(List<Long> orderIds) {
+-        List<Order> orders = orderRepo.findByIds(orderIds);
+-        return convert(orders);
++        List<OrderDTO> result = new ArrayList<>();
++        for (Long id : orderIds) {
++            Order order = orderRepo.findById(id);
++            if (order != null) {
++                result.add(toDTO(order));
++            }
++        }
++        return result;
+     }
+ }
+\ No newline at end of file

@@ -1,0 +1,12 @@
+{
+  "case_id": "negative_ComplexMethod",
+  "dimension": "Q05_CodeStyle",
+  "should_detect": true,
+  "target_issues": [
+    "方法过长",
+    "圈复杂度",
+    "重构"
+  ],
+  "severity": "medium",
+  "description": "方法过长且复杂度高"
+}

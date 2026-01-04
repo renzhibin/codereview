@@ -1,0 +1,61 @@
+rules:
+  # 追踪 userRepository.findById 的完整调用链
+  - id: trace-user-findbyid-full-chain
+    languages: [java]
+    message: |
+      调用链追踪：userRepository.findById()
+      上游：Controller 方法
+      当前：数据库查询
+      下游：数据使用和返回
+    severity: INFO
+    patterns:
+      - pattern-inside: |
+          public ResponseEntity<?> $METHOD(...) {
+            ...
+            Optional<User> $VAR = userRepository.findById($ID);
+            ...
+          }
+      - pattern: Optional<User> $VAR = userRepository.findById($ID)
+    
+  # 追踪查询结果的使用
+  - id: trace-user-data-usage
+    languages: [java]
+    message: "数据使用：从数据库获取后的操作"
+    severity: INFO
+    patterns:
+      - pattern-inside: |
+          Optional<User> $VAR = userRepository.findById(...);
+          ...
+      - pattern-either:
+          - pattern: $VAR.get()
+          - pattern: $VAR.isPresent()
+          - pattern: $VAR.isEmpty()
+          
+  # 追踪订单相关的完整链路
+  - id: trace-order-operations
+    languages: [java]
+    message: "订单操作调用链"
+    severity: INFO
+    pattern-either:
+      - pattern: |
+          @GetMapping("/{orderId}")
+          public ResponseEntity<?> $METHOD(...) {
+            ...
+            $REPO.findById($ID);
+            ...
+          }
+      - pattern: |
+          @PutMapping("/{orderId}")
+          public ResponseEntity<?> $METHOD(...) {
+            ...
+            $REPO.save(...);
+            ...
+          }
+      - pattern: |
+          @DeleteMapping("/{orderId}")
+          public ResponseEntity<?> $METHOD(...) {
+            ...
+            $REPO.delete(...);
+            ...
+          }
+

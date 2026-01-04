@@ -1,0 +1,13 @@
+{
+  "case_id": "negative_ViewOthersOrder",
+  "dimension": "Q06_HorizontalPrivilege",
+  "rule_id": "IDOR_001",
+  "severity": "critical",
+  "should_detect": true,
+  "target_issues": [
+    "水平越权",
+    "缺少所有权验证",
+    "删除用户权限检查",
+    "可访问他人订单"
+  ]
+}

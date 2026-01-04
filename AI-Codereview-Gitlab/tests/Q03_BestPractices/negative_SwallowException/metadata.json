@@ -1,0 +1,12 @@
+{
+  "case_id": "negative_SwallowException",
+  "dimension": "Q03_BestPractices",
+  "should_detect": true,
+  "target_issues": [
+    "吞噬异常",
+    "日志缺失",
+    "堆栈丢失"
+  ],
+  "severity": "medium",
+  "description": "捕获异常后吞噬（不记录堆栈）"
+}

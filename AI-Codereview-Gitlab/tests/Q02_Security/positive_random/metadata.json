@@ -1,0 +1,9 @@
+{
+  "case_id": "positive_random",
+  "dimension": "Q02_Security",
+  "rule_id": "REAL_TRAP",
+  "severity": "info",
+  "should_detect": false,
+  "target_issues": [],
+  "description": "看起来是弱随机数，实际场景不需要安全随机"
+}

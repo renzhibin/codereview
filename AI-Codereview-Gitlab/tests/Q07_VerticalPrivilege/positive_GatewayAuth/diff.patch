@@ -1,0 +1,17 @@
+--- before.java	2025-12-31 09:37:09.040497010 +0800
++++ after.java	2025-12-31 09:37:50.881952228 +0800
+@@ -1,8 +1,8 @@
++@RestController
++@RequestMapping("/internal/admin")
+ public class InternalController {
+-    public void adminTask() {
+-        if (!UserContext.isAdmin()) {
+-            throw new ForbiddenException();
+-        }
+-        service.doAdminTask();
++    @PostMapping("/sync")
++    public void syncData() {
++        service.sync();
+     }
+ }
+\ No newline at end of file

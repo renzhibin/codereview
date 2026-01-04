@@ -1,0 +1,8 @@
+{
+  "case_id": "positive_PublicApi",
+  "dimension": "Q07_VerticalPrivilege",
+  "should_detect": false,
+  "target_issues": [],
+  "severity": "info",
+  "description": "设计为公开的接口，无需鉴权"
+}

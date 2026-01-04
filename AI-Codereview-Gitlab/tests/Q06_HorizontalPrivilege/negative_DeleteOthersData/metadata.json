@@ -1,0 +1,12 @@
+{
+  "case_id": "negative_DeleteOthersData",
+  "dimension": "Q06_HorizontalPrivilege",
+  "rule_id": "IDOR_003",
+  "severity": "critical",
+  "should_detect": true,
+  "target_issues": [
+    "水平越权",
+    "可删除他人数据",
+    "缺少所有权验证"
+  ]
+}

@@ -1,0 +1,28 @@
+--- before.java	2025-12-30 17:04:31.360886889 +0800
++++ after.java	2025-12-30 17:04:31.361011929 +0800
+@@ -6,12 +6,6 @@
+     private UserContext userContext;
+     
+     public void updateUserProfile(String userId, UserProfile profile) {
+-        String currentUserId = userContext.getCurrentUserId();
+-        
+-        if (!userId.equals(currentUserId)) {
+-            throw new UnauthorizedException("无权修改他人资料");
+-        }
+-        
+         if (profile == null) {
+             throw new IllegalArgumentException("资料不能为空");
+         }
+@@ -20,12 +14,6 @@
+     }
+     
+     public void updateEmail(String userId, String newEmail) {
+-        String currentUserId = userContext.getCurrentUserId();
+-        
+-        if (!userId.equals(currentUserId)) {
+-            throw new UnauthorizedException("无权修改他人邮箱");
+-        }
+-        
+         profileDao.updateEmail(userId, newEmail);
+     }
+ }

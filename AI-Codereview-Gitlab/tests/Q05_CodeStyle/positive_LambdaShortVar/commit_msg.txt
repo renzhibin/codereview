@@ -1,0 +1,1 @@
+refactor: 使用更简洁的Lambda参数

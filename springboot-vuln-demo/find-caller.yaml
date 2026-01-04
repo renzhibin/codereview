@@ -1,0 +1,11 @@
+rules:
+  - id: find-who-calls-findById
+    languages: [java]
+    message: "函数 $METHOD 调用了 findById"
+    severity: INFO
+    patterns:
+      - pattern-inside: |
+          public $RET $METHOD(...) {
+            ...
+          }
+      - pattern: $REPO.findById($X)

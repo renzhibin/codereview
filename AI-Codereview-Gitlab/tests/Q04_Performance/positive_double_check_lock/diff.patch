@@ -1,0 +1,19 @@
+--- before.java	2025-12-31 09:02:36.751484650 +0800
++++ after.java	2025-12-31 09:02:36.751573650 +0800
+@@ -1,9 +1,13 @@
+ public class ConnectionPool {
+-    private Connection connection;
++    private volatile Connection connection;
+     
+-    public synchronized Connection getConnection() {
++    public Connection getConnection() {
+         if (connection == null) {
+-            connection = createConnection();
++            synchronized (this) {
++                if (connection == null) {
++                    connection = createConnection();
++                }
++            }
+         }
+         return connection;
+     }

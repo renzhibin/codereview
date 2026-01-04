@@ -1,0 +1,9 @@
+{
+  "case_id": "positive_intentional_equals",
+  "dimension": "Q05_CodeStyle",
+  "rule_id": "REAL_TRAP",
+  "severity": "info",
+  "should_detect": false,
+  "target_issues": [],
+  "description": "看起来应该用常量时间比较，但业务需要短路"
+}

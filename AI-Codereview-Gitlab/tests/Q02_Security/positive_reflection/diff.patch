@@ -1,0 +1,24 @@
+--- before.java	2025-12-31 09:02:36.699258976 +0800
++++ after.java	2025-12-31 09:24:54.004227931 +0800
+@@ -1,10 +1,14 @@
+ public class ProcessorFactory {
+-    public Processor createProcessor(String type) {
+-        if ("json".equals(type)) {
+-            return new JsonProcessor();
+-        } else if ("xml".equals(type)) {
+-            return new XmlProcessor();
++    private static final Map<String, String> PROCESSOR_MAP = Map.of(
++        "json", "com.example.JsonProcessor",
++        "xml", "com.example.XmlProcessor"
++    );
++    
++    public Processor createProcessor(String type) throws Exception {
++        String className = PROCESSOR_MAP.get(type);
++        if (className == null) {
++            return new DefaultProcessor();
+         }
+-        return new DefaultProcessor();
++        return (Processor) Class.forName(className).getDeclaredConstructor().newInstance();
+     }
+ }
+\ No newline at end of file

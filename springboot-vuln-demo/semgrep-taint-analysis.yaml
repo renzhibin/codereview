@@ -1,0 +1,28 @@
+rules:
+  - id: trace-user-input-to-database
+    languages: [java]
+    message: |
+      污点分析：追踪用户输入如何流向数据库
+      Source: @PathVariable -> Sink: repository 方法
+    severity: INFO
+    mode: taint
+    pattern-sources:
+      - pattern: |
+          @PathVariable $TYPE $VAR
+    pattern-sinks:
+      - pattern: $REPO.findById($VAR)
+      - pattern: $REPO.save($VAR)
+      - pattern: $REPO.delete($VAR)
+    
+  - id: trace-request-param-flow
+    languages: [java]
+    message: "追踪请求参数的数据流"
+    severity: INFO
+    mode: taint
+    pattern-sources:
+      - pattern: |
+          @RequestParam $TYPE $VAR
+    pattern-sinks:
+      - pattern: $USER.setRole($VAR)
+      - pattern: $OBJ.setStatus($VAR)
+

@@ -1,0 +1,19 @@
+--- before.java	2025-12-31 13:44:55.387350825 +0800
++++ after.java	2025-12-31 13:44:59.183256114 +0800
+@@ -1,12 +1,11 @@
+ import java.util.Map;
++import java.util.Objects;
+ 
+ public class ConfigService {
+     private Map<String, String> config;
+ 
+     public String getValue(String key) {
+-        if (config.get(key) != null) {
+-            return config.get(key).trim();
+-        }
+-        return null;
++        // Enforce fail-fast for missing keys
++        return Objects.requireNonNull(config.get(key), "Config key required: " + key).trim();
+     }
+ }
+\ No newline at end of file

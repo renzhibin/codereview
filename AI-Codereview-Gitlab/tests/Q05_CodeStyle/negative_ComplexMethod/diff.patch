@@ -1,0 +1,24 @@
+--- before.java	2025-12-31 09:37:08.946476395 +0800
++++ after.java	2025-12-31 09:37:50.881162732 +0800
+@@ -1,5 +1,19 @@
+ public class Validator {
+     public boolean validate(User user) {
+-        return validateName(user) && validateAge(user);
++        if (user != null) {
++            if (user.getName() != null) {
++                if (user.getName().length() > 0) {
++                    if (user.getAge() > 18) {
++                        if (user.getEmail() != null) {
++                            if (user.getEmail().contains("@")) {
++                                // ... 更多嵌套
++                                return true;
++                            }
++                        }
++                    }
++                }
++            }
++        }
++        return false;
+     }
+ }
+\ No newline at end of file

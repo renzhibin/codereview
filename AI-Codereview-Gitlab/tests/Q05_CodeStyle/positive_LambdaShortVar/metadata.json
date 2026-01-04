@@ -1,0 +1,8 @@
+{
+  "case_id": "positive_LambdaShortVar",
+  "dimension": "Q05_CodeStyle",
+  "should_detect": false,
+  "target_issues": [],
+  "severity": "info",
+  "description": "Lambda表达式中使用单字母变量是符合惯例的"
+}

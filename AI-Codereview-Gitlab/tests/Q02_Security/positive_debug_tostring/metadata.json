@@ -1,0 +1,9 @@
+{
+  "case_id": "positive_debug_tostring",
+  "dimension": "Q02_Security",
+  "rule_id": "REAL_TRAP",
+  "severity": "info",
+  "should_detect": false,
+  "target_issues": [],
+  "description": "看起来泄露敏感信息，实际有环境判断"
+}

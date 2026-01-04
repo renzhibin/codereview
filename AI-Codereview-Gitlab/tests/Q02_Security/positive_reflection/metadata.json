@@ -1,0 +1,9 @@
+{
+  "case_id": "positive_reflection",
+  "dimension": "Q02_Security",
+  "rule_id": "REAL_TRAP",
+  "severity": "info",
+  "should_detect": false,
+  "target_issues": [],
+  "description": "看起来是反射漏洞，实际是受限的白名单"
+}

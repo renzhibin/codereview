@@ -1,0 +1,9 @@
+{
+  "case_id": "positive_empty_catch",
+  "dimension": "Q01_Functionality",
+  "rule_id": "REAL_TRAP",
+  "severity": "info",
+  "should_detect": false,
+  "target_issues": [],
+  "description": "资源释放时的异常忽略模式（Empty Catch），属于常见惯用写法，不应视为缺陷"
+}

@@ -1,0 +1,17 @@
+--- before.java	2025-12-31 09:02:36.682332793 +0800
++++ after.java	2025-12-31 09:24:54.004109681 +0800
+@@ -1,6 +1,11 @@
+ public class ReportService {
+-    public List<Map<String, Object>> getReport(String type) {
+-        String sql = "SELECT * FROM reports WHERE type = ?";
++    private static final Set<String> VALID_COLUMNS = Set.of("name", "date", "amount", "status");
++    
++    public List<Map<String, Object>> getReport(String type, String orderBy) {
++        if (!VALID_COLUMNS.contains(orderBy)) {
++            throw new IllegalArgumentException("Invalid column: " + orderBy);
++        }
++        String sql = "SELECT * FROM reports WHERE type = ? ORDER BY " + orderBy;
+         return jdbcTemplate.queryForList(sql, type);
+     }
+ }
+\ No newline at end of file

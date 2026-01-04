@@ -1,0 +1,27 @@
+--- before.java	2025-12-30 17:04:31.418109236 +0800
++++ after.java	2025-12-30 17:04:31.418855813 +0800
+@@ -6,24 +6,10 @@
+     private UserContext userContext;
+     
+     public void deleteUser(String targetUserId) {
+-        String operatorId = userContext.getCurrentUserId();
+-        User operator = userDao.findById(operatorId);
+-        
+-        if (!operator.hasRole("ADMIN")) {
+-            throw new ForbiddenException("需要管理员权限");
+-        }
+-        
+         userDao.delete(targetUserId);
+     }
+     
+     public void updateUserRole(String targetUserId, String newRole) {
+-        String operatorId = userContext.getCurrentUserId();
+-        User operator = userDao.findById(operatorId);
+-        
+-        if (!operator.hasRole("ADMIN")) {
+-            throw new ForbiddenException("需要管理员权限");
+-        }
+-        
+         userDao.updateRole(targetUserId, newRole);
+     }
+ }

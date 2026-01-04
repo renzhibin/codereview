@@ -1,0 +1,16 @@
+--- before.java	2025-12-31 09:37:08.908200593 +0800
++++ after.java	2025-12-31 09:37:50.880623484 +0800
+@@ -1,9 +1,9 @@
+ public class ReportGenerator {
+     public String generate(List<String> lines) {
+-        StringBuilder sb = new StringBuilder();
++        String result = "";
+         for (String line : lines) {
+-            sb.append(line).append("\n");
++            result += line + "\n";
+         }
+-        return sb.toString();
++        return result;
+     }
+ }
+\ No newline at end of file

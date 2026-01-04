@@ -1,0 +1,9 @@
+{
+  "case_id": "positive_dynamic_column",
+  "dimension": "Q02_Security",
+  "rule_id": "REAL_TRAP",
+  "severity": "info",
+  "should_detect": false,
+  "target_issues": [],
+  "description": "看起来是SQL注入，实际有白名单验证"
+}

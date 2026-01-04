@@ -1,0 +1,13 @@
+rules:
+  - id: find-calls-in-getUserById
+    languages: [java]
+    message: getUserById 方法内部的调用
+    severity: INFO
+    patterns:
+      - pattern-inside: |
+          public ResponseEntity<?> getUserById(...) {
+            ...
+          }
+      - pattern-either:
+          - pattern: $OBJ.$METHOD(...)
+          - pattern: $METHOD(...)

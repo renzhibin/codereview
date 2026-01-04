@@ -1,0 +1,202 @@
+rules:
+  - id: spring-missing-authorization-check-get
+    languages:
+      - java
+    message: |
+      检测到缺少授权检查的 GET 端点。
+      该方法接收路径参数（如 userId, orderId）但没有验证当前用户是否有权访问该资源。
+      这可能导致水平越权（IDOR）漏洞，攻击者可以通过修改 ID 参数访问其他用户的数据。
+      
+      建议修复：
+      1. 在返回数据前检查资源是否属于当前用户
+      2. 或验证当前用户是否有管理员权限
+      
+      示例代码：
+      ```java
+      if (order.getUserId() != currentUserId && !isAdmin(currentUser)) {
+          return ResponseEntity.status(403).build();
+      }
+      ```
+    severity: ERROR
+    metadata:
+      category: security
+      cwe: "CWE-639: Authorization Bypass Through User-Controlled Key"
+      owasp: "A01:2021 - Broken Access Control"
+      vulnerability_class: "Insecure Direct Object Reference (IDOR)"
+    pattern: |
+      @GetMapping(...)
+      public $RET $METHOD(..., @PathVariable $TYPE $PARAM, ...) {
+        ...
+      }
+
+  - id: spring-missing-authorization-check-put
+    languages:
+      - java
+    message: |
+      检测到缺少授权检查的 PUT 端点。
+      该方法允许修改资源但没有验证当前用户是否有权修改该资源。
+      这可能导致水平越权漏洞，攻击者可以修改其他用户的数据。
+      
+      建议修复：
+      在修改资源前验证资源所有权或管理员权限。
+    severity: ERROR
+    metadata:
+      category: security
+      cwe: "CWE-639: Authorization Bypass Through User-Controlled Key"
+      owasp: "A01:2021 - Broken Access Control"
+      vulnerability_class: "Insecure Direct Object Reference (IDOR)"
+    pattern: |
+      @PutMapping(...)
+      public $RET $METHOD(..., @PathVariable $TYPE $PARAM, ...) {
+        ...
+      }
+
+  - id: spring-missing-authorization-check-delete
+    languages:
+      - java
+    message: |
+      检测到缺少授权检查的 DELETE 端点。
+      该方法允许删除资源但没有验证当前用户是否有权删除该资源。
+      这可能导致水平越权漏洞，攻击者可以删除其他用户的数据。
+      
+      建议修复：
+      在删除资源前验证资源所有权或管理员权限。
+    severity: ERROR
+    metadata:
+      category: security
+      cwe: "CWE-639: Authorization Bypass Through User-Controlled Key"
+      owasp: "A01:2021 - Broken Access Control"
+      vulnerability_class: "Insecure Direct Object Reference (IDOR)"
+    pattern: |
+      @DeleteMapping(...)
+      public $RET $METHOD(..., @PathVariable $TYPE $PARAM, ...) {
+        ...
+      }
+
+  - id: spring-admin-endpoint-missing-role-check
+    languages:
+      - java
+    message: |
+      检测到管理员端点缺少角色检查。
+      该方法路径包含 '/admin/' 但没有验证当前用户是否具有管理员权限。
+      这可能导致垂直越权漏洞，普通用户可以访问管理员功能。
+      
+      建议修复：
+      添加角色检查或使用 Spring Security 的 @PreAuthorize 注解。
+      
+      示例代码：
+      ```java
+      @PreAuthorize("hasRole('ADMIN')")
+      @GetMapping("/admin/...")
+      public ResponseEntity<?> adminMethod(...) { ... }
+      ```
+    severity: ERROR
+    metadata:
+      category: security
+      cwe: "CWE-284: Improper Access Control"
+      owasp: "A01:2021 - Broken Access Control"
+      vulnerability_class: "Vertical Privilege Escalation"
+    patterns:
+      - pattern-either:
+          - pattern: |
+              @GetMapping("$PATH")
+              public $RET $METHOD(...) {
+                ...
+              }
+          - pattern: |
+              @PostMapping("$PATH")
+              public $RET $METHOD(...) {
+                ...
+              }
+          - pattern: |
+              @PutMapping("$PATH")
+              public $RET $METHOD(...) {
+                ...
+              }
+      - metavariable-regex:
+          metavariable: $PATH
+          regex: .*/admin/.*
+
+  - id: spring-role-modification-missing-check
+    languages:
+      - java
+    message: |
+      检测到角色修改功能缺少权限检查。
+      该方法允许修改用户角色但没有验证操作者是否为管理员。
+      这是严重的垂直越权漏洞，普通用户可能将自己提升为管理员。
+      
+      建议修复：
+      必须验证当前用户具有管理员权限才能修改角色。
+    severity: ERROR
+    metadata:
+      category: security
+      cwe: "CWE-269: Improper Privilege Management"
+      owasp: "A01:2021 - Broken Access Control"
+      vulnerability_class: "Vertical Privilege Escalation"
+    pattern: $USER.setRole(...)
+
+  - id: spring-repository-findbyid-without-ownership-check
+    languages:
+      - java
+    message: |
+      检测到使用 repository.findById() 查询数据但没有验证所有权。
+      在返回数据给用户前，应该验证该资源是否属于当前用户。
+      
+      建议修复：
+      在返回数据前添加所有权检查。
+    severity: WARNING
+    metadata:
+      category: security
+      cwe: "CWE-639: Authorization Bypass Through User-Controlled Key"
+      owasp: "A01:2021 - Broken Access Control"
+    patterns:
+      - pattern-inside: |
+          @GetMapping(...)
+          public $RET $METHOD(..., @PathVariable $TYPE $ID, ...) {
+            ...
+          }
+      - pattern: $REPO.findById($ID)
+      - pattern-not-inside: |
+          ...
+          if ($OBJ.getUserId() == ...) { ... }
+          ...
+      - pattern-not-inside: |
+          ...
+          if ($OBJ.getUserId() != ...) { return ...; }
+          ...
+
+  - id: spring-weak-authentication-header
+    languages:
+      - java
+    message: |
+      检测到使用自定义 HTTP Header 进行身份验证（如 X-User-Id）。
+      这是不安全的做法，因为客户端可以任意伪造 Header 值。
+      
+      建议修复：
+      1. 使用 Spring Security 进行身份验证
+      2. 使用 JWT 或 Session 进行用户识别
+      3. 不要信任客户端直接传递的用户 ID
+    severity: WARNING
+    metadata:
+      category: security
+      cwe: "CWE-287: Improper Authentication"
+      owasp: "A07:2021 - Identification and Authentication Failures"
+    pattern: |
+      @RequestHeader(value = "X-User-Id", ...)
+
+  - id: spring-missing-request-body-validation
+    languages:
+      - java
+    message: |
+      检测到接收 Map 类型的请求体，可能缺少输入验证。
+      使用 Map 接收请求数据会绕过类型检查和验证，可能导致安全问题。
+      
+      建议修复：
+      使用具体的 DTO 类并添加验证注解（如 @Valid, @NotNull 等）。
+    severity: INFO
+    metadata:
+      category: security
+      cwe: "CWE-20: Improper Input Validation"
+    pattern: |
+      @RequestBody Map<String, Object> $PARAM
+

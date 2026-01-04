@@ -1,0 +1,13 @@
+--- before.java	2025-12-31 09:02:36.769398750 +0800
++++ after.java	2025-12-31 09:24:54.004345097 +0800
+@@ -4,6 +4,9 @@
+     
+     @Override
+     public String toString() {
++        if (System.getProperty("env", "prod").equals("dev")) {
++            return "ApiRequest{apiKey='" + apiKey + "', data='" + data + "'}";
++        }
+         return "ApiRequest{data='" + data + "'}";
+     }
+ }
+\ No newline at end of file

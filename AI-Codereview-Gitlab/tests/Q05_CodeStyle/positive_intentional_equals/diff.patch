@@ -1,0 +1,12 @@
+--- before.java	2025-12-31 09:02:36.716063783 +0800
++++ after.java	2025-12-31 09:24:54.004746762 +0800
+@@ -1,5 +1,8 @@
+ public class TokenValidator {
+     public boolean validate(String token, String expected) {
++        if (token.length() != expected.length()) {
++            return false;
++        }
+         return token.equals(expected);
+     }
+ }
+\ No newline at end of file

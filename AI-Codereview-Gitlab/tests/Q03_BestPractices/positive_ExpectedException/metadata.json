@@ -1,0 +1,8 @@
+{
+  "case_id": "positive_ExpectedException",
+  "dimension": "Q03_BestPractices",
+  "should_detect": false,
+  "target_issues": [],
+  "severity": "info",
+  "description": "业务预期异常，不需要打印堆栈"
+}

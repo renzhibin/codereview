@@ -1,0 +1,12 @@
+{
+  "case_id": "negative_StringConcatInLoop",
+  "dimension": "Q04_Performance",
+  "should_detect": true,
+  "target_issues": [
+    "字符串拼接",
+    "StringBuilder",
+    "性能"
+  ],
+  "severity": "medium",
+  "description": "循环中使用+=拼接字符串"
+}

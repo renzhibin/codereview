@@ -1,0 +1,14 @@
+--- before.java	2025-12-31 09:37:08.833452357 +0800
++++ after.java	2025-12-31 09:37:08.833550523 +0800
+@@ -3,8 +3,8 @@
+         try {
+             doTask();
+         } catch (Exception e) {
+-            logger.error("Task failed", e);
+-            throw new TaskException(e);
++            // 只打印简单信息，丢失堆栈，甚至可能 System.out
++            System.out.println("Error happened");
+         }
+     }
+ }
+\ No newline at end of file

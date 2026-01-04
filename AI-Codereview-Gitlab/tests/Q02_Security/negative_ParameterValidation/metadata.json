@@ -1,0 +1,11 @@
+{
+  "case_id": "negative_ParameterValidation",
+  "dimension": "Q02_Security",
+  "rule_id": "R159",
+  "severity": "critical",
+  "should_detect": true,
+  "target_issues": [
+    "参数验证",
+    "输入校验"
+  ]
+}

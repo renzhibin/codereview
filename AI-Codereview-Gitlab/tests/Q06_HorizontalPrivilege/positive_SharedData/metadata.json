@@ -1,0 +1,8 @@
+{
+  "case_id": "positive_SharedData",
+  "dimension": "Q06_HorizontalPrivilege",
+  "should_detect": false,
+  "target_issues": [],
+  "severity": "info",
+  "description": "基于授权的共享数据访问"
+}

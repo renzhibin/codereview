@@ -1,0 +1,8 @@
+{
+  "case_id": "positive_AdminAccess",
+  "dimension": "Q06_HorizontalPrivilege",
+  "should_detect": false,
+  "target_issues": [],
+  "severity": "info",
+  "description": "管理员有权访问任意用户数据"
+}

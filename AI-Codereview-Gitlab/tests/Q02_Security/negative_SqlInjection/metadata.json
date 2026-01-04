@@ -1,0 +1,11 @@
+{
+  "case_id": "negative_SqlInjection",
+  "dimension": "Q02_Security",
+  "rule_id": "R158",
+  "severity": "critical",
+  "should_detect": true,
+  "target_issues": [
+    "SQL注入",
+    "字符串拼接"
+  ]
+}

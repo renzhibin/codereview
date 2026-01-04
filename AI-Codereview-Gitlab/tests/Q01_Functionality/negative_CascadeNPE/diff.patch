@@ -1,0 +1,8 @@
+--- before.java	2025-12-31 11:20:29.018468084 +0800
++++ after.java	2025-12-31 11:22:47.167323614 +0800
+@@ -1,2 +1,5 @@
+ public class UserProfileService {
++    public String getUserCity(User user) {
++        return user.getAddress().getCity().getName();
++    }
+ }

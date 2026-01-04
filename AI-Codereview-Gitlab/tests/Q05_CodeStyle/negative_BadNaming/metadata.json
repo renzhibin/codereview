@@ -1,0 +1,12 @@
+{
+  "case_id": "negative_BadNaming",
+  "dimension": "Q05_CodeStyle",
+  "should_detect": true,
+  "target_issues": [
+    "命名规范",
+    "拼音命名",
+    "可读性"
+  ],
+  "severity": "medium",
+  "description": "使用拼音或无意义变量名"
+}

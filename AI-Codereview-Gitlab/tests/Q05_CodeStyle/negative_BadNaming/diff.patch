@@ -1,0 +1,14 @@
+--- before.java	2025-12-31 09:37:08.927224099 +0800
++++ after.java	2025-12-31 09:37:50.881326023 +0800
+@@ -1,6 +1,7 @@
+ public class CustomerService {
+-    public void printBill(Customer customer) {
+-        double total = calculate(customer);
+-        System.out.println(total);
++    public void daYin(Customer kehu) {
++        double jine = suan(kehu);
++        String s = "Result: " + jine;
++        System.out.println(s);
+     }
+ }
+\ No newline at end of file

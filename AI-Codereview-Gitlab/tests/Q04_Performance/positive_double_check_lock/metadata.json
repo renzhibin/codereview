@@ -1,0 +1,9 @@
+{
+  "case_id": "positive_double_check_lock",
+  "dimension": "Q04_Performance",
+  "rule_id": "REAL_TRAP",
+  "severity": "info",
+  "should_detect": false,
+  "target_issues": [],
+  "description": "看起来是错误的双重检查锁，实际有volatile"
+}

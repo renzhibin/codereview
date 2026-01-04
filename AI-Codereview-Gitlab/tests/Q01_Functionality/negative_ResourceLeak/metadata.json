@@ -1,0 +1,12 @@
+{
+  "case_id": "negative_ResourceLeak",
+  "dimension": "Q01_Functionality",
+  "should_detect": true,
+  "target_issues": [
+    "资源泄漏",
+    "连接未关闭",
+    "Connection"
+  ],
+  "severity": "critical",
+  "description": "数据库连接未关闭导致资源泄漏"
+}

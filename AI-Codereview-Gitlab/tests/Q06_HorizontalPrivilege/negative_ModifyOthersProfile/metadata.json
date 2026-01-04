@@ -1,0 +1,12 @@
+{
+  "case_id": "negative_ModifyOthersProfile",
+  "dimension": "Q06_HorizontalPrivilege",
+  "rule_id": "IDOR_002",
+  "severity": "critical",
+  "should_detect": true,
+  "target_issues": [
+    "水平越权",
+    "可修改他人资料",
+    "删除所有权验证"
+  ]
+}

@@ -1,0 +1,11 @@
+--- before.java	2025-12-31 09:37:09.003303996 +0800
++++ after.java	2025-12-31 09:37:50.882566351 +0800
+@@ -1,7 +1,7 @@
+ public class DocService {
+     public Document getDoc(Long docId) {
+         Document doc = repo.findById(docId);
+-        if (!doc.getOwnerId().equals(currentUser())) {
++        if (!doc.getOwnerId().equals(currentUser()) && !shareService.hasAccess(docId, currentUser())) {
+             throw new ForbiddenException();
+         }
+         return doc;

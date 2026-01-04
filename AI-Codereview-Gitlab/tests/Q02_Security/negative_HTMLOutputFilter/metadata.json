@@ -1,0 +1,11 @@
+{
+  "case_id": "negative_HTMLOutputFilter",
+  "dimension": "Q02_Security",
+  "rule_id": "R160",
+  "severity": "critical",
+  "should_detect": true,
+  "target_issues": [
+    "XSS",
+    "HTML输出过滤"
+  ]
+}

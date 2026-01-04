@@ -1,0 +1,19 @@
+--- before.java	2025-12-31 13:45:10.497031634 +0800
++++ after.java	2025-12-31 13:45:14.752076476 +0800
+@@ -2,9 +2,13 @@
+ import java.io.IOException;
+ 
+ public class ResourceManager {
+-    public void closeResource(Closeable resource) throws IOException {
++    public void closeQuietly(Closeable resource) {
+         if (resource != null) {
+-            resource.close();
++            try {
++                resource.close();
++            } catch (IOException e) {
++                // Intentionally ignored for cleanup
++            }
+         }
+     }
+ }
+\ No newline at end of file

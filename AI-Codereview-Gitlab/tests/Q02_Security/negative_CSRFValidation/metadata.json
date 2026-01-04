@@ -1,0 +1,11 @@
+{
+  "case_id": "negative_CSRFValidation",
+  "dimension": "Q02_Security",
+  "rule_id": "R162",
+  "severity": "critical",
+  "should_detect": true,
+  "target_issues": [
+    "CSRF",
+    "跨站请求伪造"
+  ]
+}

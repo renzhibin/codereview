@@ -1,0 +1,21 @@
+--- before.java	2025-12-31 09:02:36.734004592 +0800
++++ after.java	2025-12-31 09:24:54.003715475 +0800
+@@ -1,7 +1,13 @@
+ public class TaskExecutor {
+-    public void executeTask(Task task) throws IOException {
+-        task.prepare();
+-        task.execute();
+-        task.cleanup();
++    public void executeTask(Task task) {
++        try {
++            task.prepare();
++            task.execute();
++            task.cleanup();
++        } catch (Exception e) {
++            logger.error("Task execution failed: " + task.getId(), e);
++            metricsRecorder.recordFailure(task.getClass().getName(), e);
++            throw new TaskExecutionException("Task failed", e);
++        }
+     }
+ }
+\ No newline at end of file

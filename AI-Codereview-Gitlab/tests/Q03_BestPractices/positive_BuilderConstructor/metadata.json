@@ -1,0 +1,8 @@
+{
+  "case_id": "positive_BuilderConstructor",
+  "dimension": "Q03_BestPractices",
+  "should_detect": false,
+  "target_issues": [],
+  "severity": "info",
+  "description": "Builder模式的私有全参构造，参数多是合理的"
+}

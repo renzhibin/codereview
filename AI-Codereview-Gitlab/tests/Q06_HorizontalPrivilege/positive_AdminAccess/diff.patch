@@ -1,0 +1,15 @@
+--- before.java	2025-12-31 09:37:08.983798659 +0800
++++ after.java	2025-12-31 09:37:50.882729559 +0800
+@@ -1,9 +1,6 @@
+ public class UserService {
+-    public User getUser(Long id) {
+-        Long currentId = UserContext.getUserId();
+-        if (!currentId.equals(id)) {
+-            throw new AccessDeniedException();
+-        }
++    @Secured("ROLE_ADMIN")
++    public User getUserForAdmin(Long id) {
+         return repo.findById(id);
+     }
+ }
+\ No newline at end of file

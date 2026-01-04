@@ -1,0 +1,60 @@
+--- before.java	2025-12-31 11:08:05.669457898 +0800
++++ after.java	2025-12-30 16:53:05.113430640 +0800
+@@ -8,53 +8,31 @@
+     public class UserService {
+         
+         public UserProfile getUserProfile(String currentUserId, String targetUserId) {
+-            if (!hasPermission(currentUserId, targetUserId)) {
+-                throw new SecurityException("Access denied: insufficient permissions");
+-            }
+-            
+             return new UserProfile(targetUserId);
+         }
+         
+         public void updateUserProfile(String currentUserId, String targetUserId, UserProfile profile) {
+-            if (!hasPermission(currentUserId, targetUserId)) {
+-                throw new SecurityException("Access denied: insufficient permissions");
+-            }
+-            
+-            // 更新用户资料
+             System.out.println("Updating profile for user: " + targetUserId);
+         }
+         
+         public void deleteUserData(String currentUserId, String targetUserId) {
+-            if (!hasPermission(currentUserId, targetUserId)) {
+-                throw new SecurityException("Access denied: insufficient permissions");
+-            }
+-            
+-            // 删除用户数据
+             System.out.println("Deleting data for user: " + targetUserId);
+         }
+         
+         public List<Message> getUserMessages(String currentUserId, String targetUserId) {
+-            if (!hasPermission(currentUserId, targetUserId)) {
+-                throw new SecurityException("Access denied: insufficient permissions");
+-            }
+-            
+             return new ArrayList<>();
+         }
+         
+         public List<Order> getUserOrders(String currentUserId, String targetUserId) {
+-            if (!hasPermission(currentUserId, targetUserId)) {
+-                throw new SecurityException("Access denied: insufficient permissions");
+-            }
+-            
+             return new ArrayList<>();
+         }
+         
+-        private boolean hasPermission(String currentUserId, String targetUserId) {
+-            return currentUserId.equals(targetUserId) || isAdmin(currentUserId);
++        public String getUserFile(String currentUserId, String targetUserId, String fileName) {
++            return "File content for: " + fileName;
+         }
+         
+-        private boolean isAdmin(String userId) {
+-            return "admin".equals(userId);
++        public void updateUserSettings(String currentUserId, String targetUserId, String settings) {
++            System.out.println("Updating settings for user: " + targetUserId);
+         }
+     }
+     

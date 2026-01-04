@@ -1,0 +1,185 @@
+{
+  "test_run": {
+    "timestamp": "2025-12-31T14:27:48Z",
+    "total_cases": 5,
+    "model": "qwen/qwen3-coder-30b-a3b-instruct"
+  },
+  "overall_metrics": {
+    "total_cases": 5,
+    "tp": 0,
+    "fp": 0,
+    "fn": 2,
+    "tn": 3,
+    "precision": 0,
+    "recall": 0.0,
+    "f1_score": 0,
+    "accuracy": 0.6,
+    "passed": 3,
+    "failed": 2
+  },
+  "by_dimension": {
+    "Q01_Functionality": {
+      "total_cases": 5,
+      "tp": 0,
+      "fp": 0,
+      "fn": 2,
+      "tn": 3,
+      "precision": 0,
+      "recall": 0.0,
+      "f1_score": 0,
+      "accuracy": 0.6,
+      "passed": 3,
+      "failed": 2
+    }
+  },
+  "general_review": {
+    "total_cases": 5,
+    "tp": 0,
+    "fp": 0,
+    "fn": 2,
+    "tn": 3,
+    "precision": 0,
+    "recall": 0.0,
+    "f1_score": 0,
+    "accuracy": 0.6,
+    "passed": 3,
+    "failed": 2,
+    "dimensions": [
+      "Q01_Functionality",
+      "Q02_Security",
+      "Q03_BestPractices",
+      "Q04_Performance",
+      "Q05_CodeStyle"
+    ]
+  },
+  "security_review": {
+    "total_cases": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "tn": 0,
+    "precision": 0,
+    "recall": 0,
+    "f1_score": 0,
+    "accuracy": 0,
+    "passed": 0,
+    "failed": 0,
+    "dimensions": [
+      "Q06_HorizontalPrivilege",
+      "Q07_VerticalPrivilege"
+    ]
+  },
+  "failed_cases": [
+    {
+      "case_id": "negative_CascadeNPE",
+      "case_name": "negative_CascadeNPE",
+      "dimension": "Q01_Functionality",
+      "detected": false,
+      "should_detect": true,
+      "reason": "漏报 (FN)"
+    },
+    {
+      "case_id": "negative_ResourceLeak",
+      "case_name": "negative_ResourceLeak",
+      "dimension": "Q01_Functionality",
+      "detected": false,
+      "should_detect": true,
+      "reason": "漏报 (FN)"
+    }
+  ],
+  "all_results": [
+    {
+      "case_id": "negative_CascadeNPE",
+      "case_name": "negative_CascadeNPE",
+      "dimension": "Q01_Functionality",
+      "detected": false,
+      "should_detect": true,
+      "violations": [],
+      "expected_issues": [
+        "空指针异常",
+        "NPE",
+        "级联调用"
+      ],
+      "score": 10,
+      "is_correct": false,
+      "is_tp": false,
+      "is_fp": false,
+      "is_fn": true,
+      "is_tn": false,
+      "elapsed_time": 1803.733232975006,
+      "raw_output": "Error: Request timed out."
+    },
+    {
+      "case_id": "negative_ResourceLeak",
+      "case_name": "negative_ResourceLeak",
+      "dimension": "Q01_Functionality",
+      "detected": false,
+      "should_detect": true,
+      "violations": [],
+      "expected_issues": [
+        "资源泄漏",
+        "连接未关闭",
+        "Connection"
+      ],
+      "score": 10,
+      "is_correct": false,
+      "is_tp": false,
+      "is_fp": false,
+      "is_fn": true,
+      "is_tn": false,
+      "elapsed_time": 1803.728353023529,
+      "raw_output": "Error: Request timed out."
+    },
+    {
+      "case_id": "positive_catch_exception",
+      "case_name": "positive_catch_exception",
+      "dimension": "Q01_Functionality",
+      "detected": false,
+      "should_detect": false,
+      "violations": [],
+      "expected_issues": [],
+      "score": 10,
+      "is_correct": true,
+      "is_tp": false,
+      "is_fp": false,
+      "is_fn": false,
+      "is_tn": true,
+      "elapsed_time": 1815.5515608787537,
+      "raw_output": "Error: Request timed out."
+    },
+    {
+      "case_id": "positive_empty_catch",
+      "case_name": "positive_empty_catch",
+      "dimension": "Q01_Functionality",
+      "detected": false,
+      "should_detect": false,
+      "violations": [],
+      "expected_issues": [],
+      "score": 10,
+      "is_correct": true,
+      "is_tp": false,
+      "is_fp": false,
+      "is_fn": false,
+      "is_tn": true,
+      "elapsed_time": 1803.9284920692444,
+      "raw_output": "Error: Request timed out."
+    },
+    {
+      "case_id": "positive_float_compare",
+      "case_name": "positive_float_compare",
+      "dimension": "Q01_Functionality",
+      "detected": false,
+      "should_detect": false,
+      "violations": [],
+      "expected_issues": [],
+      "score": 10,
+      "is_correct": true,
+      "is_tp": false,
+      "is_fp": false,
+      "is_fn": false,
+      "is_tn": true,
+      "elapsed_time": 1813.855054616928,
+      "raw_output": "Error: Request timed out."
+    }
+  ]
+}

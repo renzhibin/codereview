@@ -1,0 +1,12 @@
+{
+  "case_id": "negative_AccessAdminFunction",
+  "dimension": "Q07_VerticalPrivilege",
+  "rule_id": "RBAC_002",
+  "severity": "critical",
+  "should_detect": true,
+  "target_issues": [
+    "垂直越权",
+    "管理功能缺少角色验证",
+    "只检查登录状态"
+  ]
+}

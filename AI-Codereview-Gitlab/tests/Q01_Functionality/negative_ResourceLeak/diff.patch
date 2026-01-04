@@ -1,0 +1,13 @@
+--- before.java	2025-12-31 09:37:50.883207723 +0800
++++ after.java	2025-12-31 09:37:50.883105432 +0800
+@@ -1,7 +1,6 @@
+ public class DataExporter {
+     public void exportData() throws SQLException {
+-        try (Connection conn = dataSource.getConnection()) {
+-            exportToCsv(conn);
+-        }
++        Connection conn = dataSource.getConnection();
++        exportToCsv(conn);
+     }
+ }
+\ No newline at end of file

@@ -1,0 +1,9 @@
+{
+  "case_id": "positive_intentional_npe",
+  "dimension": "Q01_Functionality",
+  "rule_id": "REAL_TRAP",
+  "severity": "info",
+  "should_detect": false,
+  "target_issues": [],
+  "description": "使用Objects.requireNonNull显式抛出NPE，不应被识别为未处理的空指针风险"
+}

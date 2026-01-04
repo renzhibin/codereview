@@ -1,0 +1,12 @@
+{
+  "case_id": "negative_LoopQuery",
+  "dimension": "Q04_Performance",
+  "should_detect": true,
+  "target_issues": [
+    "循环查询",
+    "N+1",
+    "性能问题"
+  ],
+  "severity": "high",
+  "description": "循环中执行数据库查询（N+1问题）"
+}

@@ -1,0 +1,15 @@
+--- before.java	2025-12-31 09:37:09.022140169 +0800
++++ after.java	2025-12-31 09:37:50.882117520 +0800
+@@ -1,6 +1,8 @@
++@RestController
++@RequestMapping("/api/public")
+ public class InfoController {
+-    @PreAuthorize("isAuthenticated()")
+-    public Info getInfo() {
+-        return service.getInfo();
++    @GetMapping("/system-status")
++    public Status getSystemStatus() {
++        return service.getStatus();
+     }
+ }
+\ No newline at end of file

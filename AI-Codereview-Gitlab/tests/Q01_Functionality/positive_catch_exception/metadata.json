@@ -1,0 +1,9 @@
+{
+  "case_id": "positive_catch_exception",
+  "dimension": "Q01_Functionality",
+  "rule_id": "REAL_TRAP",
+  "severity": "info",
+  "should_detect": false,
+  "target_issues": [],
+  "description": "看起来是过度捕获，实际是框架需要"
+}

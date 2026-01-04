@@ -1,0 +1,1002 @@
+{
+  "test_run": {
+    "timestamp": "2025-12-31T10:35:10Z",
+    "total_cases": 36,
+    "model": "qwen/qwen3-coder-30b-a3b-instruct"
+  },
+  "overall_metrics": {
+    "total_cases": 36,
+    "tp": 14,
+    "fp": 12,
+    "fn": 4,
+    "tn": 6,
+    "precision": 0.5385,
+    "recall": 0.7778,
+    "f1_score": 0.6364,
+    "accuracy": 0.5556,
+    "passed": 20,
+    "failed": 16
+  },
+  "by_dimension": {
+    "Q02_安全性与潜在风险": {
+      "total_cases": 9,
+      "tp": 4,
+      "fp": 4,
+      "fn": 1,
+      "tn": 0,
+      "precision": 0.5,
+      "recall": 0.8,
+      "f1_score": 0.6154,
+      "accuracy": 0.4444,
+      "passed": 4,
+      "failed": 5
+    },
+    "Q06_水平越权": {
+      "total_cases": 5,
+      "tp": 1,
+      "fp": 2,
+      "fn": 2,
+      "tn": 0,
+      "precision": 0.3333,
+      "recall": 0.3333,
+      "f1_score": 0.3333,
+      "accuracy": 0.2,
+      "passed": 1,
+      "failed": 4
+    },
+    "Q07_垂直越权": {
+      "total_cases": 4,
+      "tp": 2,
+      "fp": 2,
+      "fn": 0,
+      "tn": 0,
+      "precision": 0.5,
+      "recall": 1.0,
+      "f1_score": 0.6667,
+      "accuracy": 0.5,
+      "passed": 2,
+      "failed": 2
+    },
+    "Q05_代码规范性": {
+      "total_cases": 4,
+      "tp": 1,
+      "fp": 0,
+      "fn": 1,
+      "tn": 2,
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1_score": 0.6667,
+      "accuracy": 0.75,
+      "passed": 3,
+      "failed": 1
+    },
+    "Q01_功能正确性与健壮性": {
+      "total_cases": 6,
+      "tp": 2,
+      "fp": 2,
+      "fn": 0,
+      "tn": 2,
+      "precision": 0.5,
+      "recall": 1.0,
+      "f1_score": 0.6667,
+      "accuracy": 0.6667,
+      "passed": 4,
+      "failed": 2
+    },
+    "Q04_性能与资源效率": {
+      "total_cases": 4,
+      "tp": 2,
+      "fp": 1,
+      "fn": 0,
+      "tn": 1,
+      "precision": 0.6667,
+      "recall": 1.0,
+      "f1_score": 0.8,
+      "accuracy": 0.75,
+      "passed": 3,
+      "failed": 1
+    },
+    "Q03_最佳实践": {
+      "total_cases": 4,
+      "tp": 2,
+      "fp": 1,
+      "fn": 0,
+      "tn": 1,
+      "precision": 0.6667,
+      "recall": 1.0,
+      "f1_score": 0.8,
+      "accuracy": 0.75,
+      "passed": 3,
+      "failed": 1
+    }
+  },
+  "general_review": {
+    "total_cases": 27,
+    "tp": 11,
+    "fp": 8,
+    "fn": 2,
+    "tn": 6,
+    "precision": 0.5789,
+    "recall": 0.8462,
+    "f1_score": 0.6875,
+    "accuracy": 0.6296,
+    "passed": 17,
+    "failed": 10,
+    "dimensions": [
+      "Q01_功能正确性与健壮性",
+      "Q02_安全性与潜在风险",
+      "Q03_最佳实践",
+      "Q04_性能与资源效率",
+      "Q05_代码规范性"
+    ]
+  },
+  "security_review": {
+    "total_cases": 9,
+    "tp": 3,
+    "fp": 4,
+    "fn": 2,
+    "tn": 0,
+    "precision": 0.4286,
+    "recall": 0.6,
+    "f1_score": 0.5,
+    "accuracy": 0.3333,
+    "passed": 3,
+    "failed": 6,
+    "dimensions": [
+      "Q06_水平越权",
+      "Q07_垂直越权"
+    ]
+  },
+  "failed_cases": [
+    {
+      "case_id": "Q02_case003",
+      "case_name": "case003_ParameterValidation_R159",
+      "dimension": "Q02_安全性与潜在风险",
+      "detected": false,
+      "should_detect": true,
+      "reason": "漏报 (FN)"
+    },
+    {
+      "case_id": "Q06_case001",
+      "case_name": "case001_查看他人订单",
+      "dimension": "Q06_水平越权",
+      "detected": false,
+      "should_detect": true,
+      "reason": "漏报 (FN)"
+    },
+    {
+      "case_id": "Q06_case002",
+      "case_name": "case002_修改他人资料",
+      "dimension": "Q06_水平越权",
+      "detected": false,
+      "should_detect": true,
+      "reason": "漏报 (FN)"
+    },
+    {
+      "case_id": "case002_ComplexMethod",
+      "case_name": "case002_ComplexMethod",
+      "dimension": "Q05_代码规范性",
+      "detected": false,
+      "should_detect": true,
+      "reason": "漏报 (FN)"
+    },
+    {
+      "case_id": "real_trap001_AdminAccess",
+      "case_name": "real_trap001_AdminAccess",
+      "dimension": "Q06_水平越权",
+      "detected": true,
+      "should_detect": false,
+      "reason": "误报 (FP)"
+    },
+    {
+      "case_id": "real_trap001_PublicApi",
+      "case_name": "real_trap001_PublicApi",
+      "dimension": "Q07_垂直越权",
+      "detected": true,
+      "should_detect": false,
+      "reason": "误报 (FP)"
+    },
+    {
+      "case_id": "real_trap002_BuilderConstructor",
+      "case_name": "real_trap002_BuilderConstructor",
+      "dimension": "Q03_最佳实践",
+      "detected": true,
+      "should_detect": false,
+      "reason": "误报 (FP)"
+    },
+    {
+      "case_id": "real_trap002_GatewayAuth",
+      "case_name": "real_trap002_GatewayAuth",
+      "dimension": "Q07_垂直越权",
+      "detected": true,
+      "should_detect": false,
+      "reason": "误报 (FP)"
+    },
+    {
+      "case_id": "real_trap002_SharedData",
+      "case_name": "real_trap002_SharedData",
+      "dimension": "Q06_水平越权",
+      "detected": true,
+      "should_detect": false,
+      "reason": "误报 (FP)"
+    },
+    {
+      "case_id": "real_trap002_dynamic_column",
+      "case_name": "real_trap002_dynamic_column",
+      "dimension": "Q02_安全性与潜在风险",
+      "detected": true,
+      "should_detect": false,
+      "reason": "误报 (FP)"
+    },
+    {
+      "case_id": "real_trap003_reflection",
+      "case_name": "real_trap003_reflection",
+      "dimension": "Q02_安全性与潜在风险",
+      "detected": true,
+      "should_detect": false,
+      "reason": "误报 (FP)"
+    },
+    {
+      "case_id": "real_trap005_catch_exception",
+      "case_name": "real_trap005_catch_exception",
+      "dimension": "Q01_功能正确性与健壮性",
+      "detected": true,
+      "should_detect": false,
+      "reason": "误报 (FP)"
+    },
+    {
+      "case_id": "real_trap007_debug_tostring",
+      "case_name": "real_trap007_debug_tostring",
+      "dimension": "Q02_安全性与潜在风险",
+      "detected": true,
+      "should_detect": false,
+      "reason": "误报 (FP)"
+    },
+    {
+      "case_id": "real_trap009_random",
+      "case_name": "real_trap009_random",
+      "dimension": "Q02_安全性与潜在风险",
+      "detected": true,
+      "should_detect": false,
+      "reason": "误报 (FP)"
+    },
+    {
+      "case_id": "real_trap012_float_compare",
+      "case_name": "real_trap012_float_compare",
+      "dimension": "Q01_功能正确性与健壮性",
+      "detected": true,
+      "should_detect": false,
+      "reason": "误报 (FP)"
+    },
+    {
+      "case_id": "real_trap014_sleep",
+      "case_name": "real_trap014_sleep",
+      "dimension": "Q04_性能与资源效率",
+      "detected": true,
+      "should_detect": false,
+      "reason": "误报 (FP)"
+    }
+  ],
+  "all_results": [
+    {
+      "case_id": "Q02_case001",
+      "case_name": "case001_SqlInjection_R158",
+      "dimension": "Q02_安全性与潜在风险",
+      "detected": true,
+      "should_detect": true,
+      "violations": [
+        "SQL注入",
+        "字符串拼接"
+      ],
+      "expected_issues": [
+        "SQL注入",
+        "字符串拼接"
+      ],
+      "score": 3,
+      "is_correct": true,
+      "is_tp": true,
+      "is_fp": false,
+      "is_fn": false,
+      "is_tn": false,
+      "elapsed_time": 16.96887993812561,
+      "raw_output": "【思考】\n1. 问题识别：\n   - 第13行：使用字符串拼接方式构造SQL，未使用PreparedStatement，存在SQL注入风险（违反M100）\n   - 第22行：使用字符串拼接方式构造SQL，未使用PreparedStatement，存在SQL注入风险（违反M100）\n   - 第31行：使用字符串拼接方式构造SQL，未使用PreparedStatement，存在SQL注入风险（违反M100）\n   - 第40行：使用字符串拼接方式构造SQL，未使用PreparedStatement，存在SQL注入风险（违反M100）\n   - 第52行：直接从参数拼接SQL查询条件，没有进行任何校验或转义，存在SQL注入（违反M100）\n   - 第13行、22行、31行、40行：所有数据库操作均用Statement代替PreparedStatement，违反M027（覆盖方法应加@Override）不适用于该情况，但使用Statement替代PreparedStatement是不推荐且容易导致SQL注入，应归入Q02\n   - 第60行：方法命名不规范（S002），但不是核心缺陷，作为建议\n2. 问题归类与判断：\n   - 5个使用字符串拼接构造SQL语句 → Q02-M100 → 缺陷 → 扣2分（单个最高1分，但因多处，累计至2分）\n   - findUserByCondition 方法的条件拼接未过滤 → Q02-M100 → 缺陷 → 扣1分\n   - 命名规范问题：findUserByCondition 方法名符合命名规范，但方法逻辑上易引起混淆，属于改进建议，不扣分（归为Q05）\n3. 同类问题合并：5处SQL拼接构造SQL语句合并为1个缺陷（Q02-M100）问题，典型示例：第13行、第22行\n4. 分数计算：Q02扣3分（2.0+1.0），总分 = 10 - 3 = 7分\n5. 自我审查：✓已输出思考和JSON ✓缺陷真实存在 ✓扣分合理 ✓同类已合并 ✓命名/格式归为建议\n【思考结束】\n\n```json\n{\n  \"总分\": \"7.0\",\n  \"整体描述\": \"发现2个缺陷需修改（含5处SQL注入风险），1个改进建议\",\n  \"各评审项扣分明细\": {\n    \"功能实现的正确性与健壮性\": {\n      \"评审项扣分\": \"0\",\n      "
+    },
+    {
+      "case_id": "Q02_case002",
+      "case_name": "case002_UserPermission_R156",
+      "dimension": "Q02_安全性与潜在风险",
+      "detected": true,
+      "should_detect": true,
+      "violations": [
+        "权限校验"
+      ],
+      "expected_issues": [
+        "权限校验",
+        "越权风险"
+      ],
+      "score": 3,
+      "is_correct": true,
+      "is_tp": true,
+      "is_fp": false,
+      "is_fn": false,
+      "is_tn": false,
+      "elapsed_time": 27.783984184265137,
+      "raw_output": "【思考】\n1. 问题识别：\n   - 第12行：getUserProfile方法中移除了权限检查逻辑（hasPermission）。\n   - 第20行：updateUserProfile方法中移除了权限检查逻辑。\n   - 第27行：deleteUserData方法中移除了权限检查逻辑。\n   - 第35行：getUserMessages方法中移除了权限检查逻辑。\n   - 第43行：getUserOrders方法中移除了权限检查逻辑。\n   - 第49行：原hasPermission方法被完全删除。\n   - 第50行：原isAdmin方法被完全删除。\n   - 第56行：新增getUserFile方法，虽然未加权限校验，但没有直接风险（返回固定内容）\n   - 第59行：新增updateUserSettings方法，虽未加权限校验，但同样无直接风险\n2. 问题归类与判断：\n   - 权限校验缺失 → Q02-安全漏洞 → 缺陷 → 扣2分（涉及5个核心方法，全部无权限检查）\n   - 新增方法虽然安全但缺少权限逻辑，属于疏忽，但不构成严重缺陷（不影响代码整体安全性）\n3. 同类问题合并：\n   - 5处权限检查逻辑缺失合并为一个缺陷，典型示例为：第12行getUserProfile、第20行updateUserProfile。\n4. 分数计算：\n   - Q02扣2分，因5处方法缺少权限校验，构成安全缺陷\n   - 总分 = 10 - 2 = 8.0分\n5. 自我审查：\n   ✓ 已输出思考和JSON  \n   ✓ 缺陷真实存在（权限校验被移除）  \n   ✓ 扣分合理（每个缺少权限的方法扣0.4分，合计2分）  \n   ✓ 同类已合并  \n   ✓ 新增方法未加权限判断不属于缺陷（仅未遵循规范）\n【思考结束】\n\n```json\n{\n  \"总分\": \"8.0\",\n  \"整体描述\": \"发现1个安全缺陷，共5处核心方法缺少权限校验，需增加权限控制逻辑\",\n  \"各评审项扣分明细\": {\n    \"功能实现的正确性与健壮性\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无\"\n    },\n    \"安全性与潜在风险\": {\n      \"评审项扣分\": \"2\",\n      \"扣分详情说明\": \"1个缺陷：5个方法（getUse"
+    },
+    {
+      "case_id": "Q02_case003",
+      "case_name": "case003_ParameterValidation_R159",
+      "dimension": "Q02_安全性与潜在风险",
+      "detected": false,
+      "should_detect": true,
+      "violations": [],
+      "expected_issues": [
+        "参数验证",
+        "输入校验"
+      ],
+      "score": 10,
+      "is_correct": false,
+      "is_tp": false,
+      "is_fp": false,
+      "is_fn": true,
+      "is_tn": false,
+      "elapsed_time": 15.960437774658203,
+      "raw_output": "【思考】\n1. 问题识别：\n   - 第12行：validateUsername方法实现被完全替换为`return true`，导致用户名校验逻辑完全缺失\n   - 第21行：validateEmail方法实现被完全替换为`return true`，导致邮箱校验逻辑完全缺失\n   - 第30行：validatePhoneNumber方法实现被完全替换为`return true`，导致手机号校验逻辑完全缺失\n   - 第39行：validatePassword方法实现被完全替换为`return true`，导致密码校验逻辑完全缺失\n   - 第48行：validateAge方法实现被完全替换为`return true`，导致年龄校验逻辑完全缺失\n   - 第53行：validateAmount方法实现被完全替换为`return true`，导致金额校验逻辑完全缺失\n   - 第60-66行：新增的两个方法processUserInput和getUserData未发现明显问题，但其存在不影响校验逻辑\n2. 问题归类与判断：\n   - 6处关键校验方法逻辑被完全忽略，直接返回true → 违反Q01-M031 → 缺陷 → Q01-M031 → 单个0.5分，6处共扣3分\n   - 新增的processUserInput和getUserData方法中无明显问题\n   - 被删除的Pattern引用虽然已被移除，但属于逻辑清理范畴，不构成缺陷\n3. 同类问题合并：\n   - 所有6个校验方法（validateUsername, validateEmail, validatePhoneNumber, validatePassword, validateAge, validateAmount）因逻辑完全缺失被简化为返回true，属于同类型问题，合并为1个问题，说明涉及6个关键校验方法，如validateUsername、validateEmail等是典型的样例。\n4. 分数计算：\n   - Q01扣分：3分（6个校验方法各0.5分）\n   - 总扣分 = 3.0分\n   - 总分 = 10 - 3 = 7.0分\n5. 自我审查：\n   ✓ 已输出思考过程和JSON；\n   ✓ 所有缺陷真实存在且影响功能正确性；\n   ✓ 问题数量准确，未将非缺陷项误判；\n   ✓ 合理合并同类"
+    },
+    {
+      "case_id": "Q02_case004",
+      "case_name": "case004_HTMLOutputFilter_R160",
+      "dimension": "Q02_安全性与潜在风险",
+      "detected": true,
+      "should_detect": true,
+      "violations": [
+        "XSS"
+      ],
+      "expected_issues": [
+        "XSS",
+        "HTML输出过滤"
+      ],
+      "score": 3,
+      "is_correct": true,
+      "is_tp": true,
+      "is_fp": false,
+      "is_fn": false,
+      "is_tn": false,
+      "elapsed_time": 75.55986189842224,
+      "raw_output": "【思考】\n1. 问题识别：\n   - 第8行：displayUserInput方法直接返回userInput，未进行HTML转义处理，存在XSS安全风险\n   - 第12行：displayUserComment方法直接返回comment，未进行HTML转义处理，存在XSS安全风险\n   - 第16行：displayUserName方法直接返回userName，未进行HTML转义处理，存在XSS安全风险\n   - 第20行：displayUserDescription方法直接返回description，未进行HTML转义处理，存在XSS安全风险\n   - 第25行：generateHTML方法将用户输入直接拼接到HTML中，存在XSS安全风险\n   - 第1行：删除了import java.util.regex.Pattern语句，但不影响当前代码问题识别\n2. 问题归类与判断：\n   - 多处直接返回未经转义的用户输入 → S042 → 缺陷 → Q02-S042 → 扣1分\n   - 多处未对用户输入做HTML转义，直接嵌入HTML → M102 → 缺陷 → Q02-M102 → 扣1分\n   - 原来的sanitizeUserInput方法被移除，功能退化 → 缺陷 → Q01-其他 → 扣0.5分\n3. 同类问题合并：\n   - 所有方法直接返回用户输入未做转义，可视为同一类型的XSS风险问题，归为1项问题。\n   - 典型示例：第8行、第12行、第16行、第20行均为未对输入进行安全处理直接返回\n4. 分数计算：\n   - Q02扣2分（S042和M102两个缺陷各0.5+0.5=1分；但两种规则累计为1分）+ Q01扣0.5分（功能退化）\n   - 总扣分 = 2.5分\n   - 实际得分 = 10 - 2.5 = 7.5分\n5. 自我审查：\n   ✓ 已输出思考过程和JSON\n   ✓ 缺陷真实存在（XSS风险）\n   ✓ 扣分合理（S042、M102、功能退化）\n   ✓ 同类已合并（多处未转义合并为1项）\n   ✓ 命名/格式归为建议无误（在审阅中未发现影响功能的命名及格式问题）\n【思考结束】\n\n{\n  \"总分\": \"7.5\",\n  \"整体描述\": \"发现3个缺陷需修改（含多处XSS风险、功能退化问题）\",\n  \"各评审项扣分明细\": {\n    "
+    },
+    {
+      "case_id": "Q02_case005",
+      "case_name": "case005_CSRFValidation_R162",
+      "dimension": "Q02_安全性与潜在风险",
+      "detected": true,
+      "should_detect": true,
+      "violations": [
+        "CSRF",
+        "跨站请求伪造"
+      ],
+      "expected_issues": [
+        "CSRF",
+        "跨站请求伪造"
+      ],
+      "score": 3,
+      "is_correct": true,
+      "is_tp": true,
+      "is_fp": false,
+      "is_fn": false,
+      "is_tn": false,
+      "elapsed_time": 33.6531879901886,
+      "raw_output": "【思考】\n1. 问题识别：\n   - 第12行：新增的deleteUser方法缺少CSRF令牌验证逻辑，违反安全原则（Q02-M100）。\n   - 第18行：新增的changePassword方法缺少CSRF令牌验证逻辑，违反安全原则（Q02-M100）。\n   - 第5行：原代码中有多个方法调用validateCSRFToken()进行CSRF防护，现在被删除，但新增方法未做安全处理，形成安全漏洞。\n2. 问题归类与判断：\n   - 新增方法未校验CSRF令牌 → M100 → 缺陷 → Q02-M100 → 扣2分（每个方法各扣1分）\n3. 同类问题合并：\n   - deleteUser和changePassword两个方法都未做CSRF校验，属于同一类问题，合并为1个问题阐述两个典型场景。\n4. 分数计算：\n   - Q02扣2分（两个缺陷各1分）= 总扣分2.0分，总分8.0分\n5. 自我审查：\n   - ✓已输出思考和JSON\n   - ✓缺陷真实存在且影响功能安全性\n   - ✓扣分合理（每个无效的安全防护扣1分）\n   - ✓同类已合并\n   - ✓命名等规范问题为改进建议，未归入缺陷范围\n\n【思考结束】\n\n{\n  \"总分\": \"8.0\",\n  \"整体描述\": \"发现2个缺陷需修改（新增方法未做CSRF校验），无改进建议\",\n  \"各评审项扣分明细\": {\n    \"功能实现的正确性与健壮性\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无功能逻辑缺陷\"\n    },\n    \"安全性与潜在风险\": {\n      \"评审项扣分\": \"2\",\n      \"扣分详情说明\": \"2个缺陷：deleteUser和changePassword方法未校验CSRF令牌（Q02-M100），各扣1分\"\n    },\n    \"是否符合最佳实践\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"性能与资源利用效率\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"代码规范性\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    }\n  },\n  \"问题列"
+    },
+    {
+      "case_id": "Q06_case001",
+      "case_name": "case001_查看他人订单",
+      "dimension": "Q06_水平越权",
+      "detected": false,
+      "should_detect": true,
+      "violations": [],
+      "expected_issues": [
+        "水平越权",
+        "缺少所有权验证",
+        "删除用户权限检查",
+        "可访问他人订单"
+      ],
+      "score": 10,
+      "is_correct": false,
+      "is_tp": false,
+      "is_fp": false,
+      "is_fn": true,
+      "is_tn": false,
+      "elapsed_time": 11.681895017623901,
+      "raw_output": "【思考】\n1. 问题识别：\n   - 第15行：删除了 getOrderById 方法中的用户权限校验逻辑，可能导致未授权访问订单\n   - 第23-25行：删除了 getUserOrders 方法中的用户权限校验逻辑，可能导致越权查询他人订单\n   - 第36-38行：删除了 deleteOrder 方法中的用户权限校验逻辑，可能导致未授权删除他人订单\n   - 以上三处删除的逻辑均涉及核心安全控制点，属于敏感操作\n2. 问题归类与判断：\n   - 删除用户权限校验 → 属于安全缺陷，违反M098（用户个人页面或功能必须进行权限控制校验）→ 缺陷 → Q02-M098 → 扣2分\n   - 以上3个删除点为同类问题，均已违反相同规则，应合并为一个缺陷\n3. 同类问题合并：\n   - 共3处删除权限校验逻辑，违反M098，合并为1个问题，举例说明：getOrderById方法、getUserOrders方法、deleteOrder方法均删除了权限校验\n4. 分数计算：\n   - 总共1个缺陷，扣2分（Q02-M098），涉及3个方法，但统一按一个严重安全缺陷计分\n   - 最终总分 = 10 - 2 = 8分\n5. 自我审查：\n   - ✓已输出思考和JSON ✓缺陷真实存在（权限控制缺失）✓扣分合理（涉及安全）✓同类已合并✓命名/格式归为建议（本例无此问题）\n【思考结束】\n\n{\n  \"总分\": \"8.0\",\n  \"整体描述\": \"发现1个严重安全缺陷需修改（删除的权限校验逻辑导致越权访问），无改进建议\",\n  \"各评审项扣分明细\": {\n    \"功能实现的正确性与健壮性\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无相关问题\"\n    },\n    \"安全性与潜在风险\": {\n      \"评审项扣分\": \"2\",\n      \"扣分详情说明\": \"1个缺陷：删除三个核心方法权限校验逻辑（Q02-M098），违反安全控制规范，导致越权访问风险\"\n    },\n    \"是否符合最佳实践\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无相关问题\"\n    },\n    \"性能与资源利用效率\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无相关问题\"\n   "
+    },
+    {
+      "case_id": "Q06_case002",
+      "case_name": "case002_修改他人资料",
+      "dimension": "Q06_水平越权",
+      "detected": false,
+      "should_detect": true,
+      "violations": [],
+      "expected_issues": [
+        "水平越权",
+        "可修改他人资料",
+        "删除所有权验证"
+      ],
+      "score": 10,
+      "is_correct": false,
+      "is_tp": false,
+      "is_fp": false,
+      "is_fn": true,
+      "is_tn": false,
+      "elapsed_time": 8.781455993652344,
+      "raw_output": "【思考】\n1. 问题识别：\n   - 第9行：删除了userId与currentUserId的权限校验逻辑，存在安全隐患\n   - 第19行：删除了userId与currentUserId的权限校验逻辑，存在安全隐患\n2. 问题归类与判断：\n   - 删除用户权限校验逻辑 → S033（缺少参数校验）→ 缺陷 → Q02-S033 → 扣1分\n   - 虽然该改动提高了代码可读性，但牺牲了安全性和功能正确性，必须修改\n3. 同类问题合并：\n   - 两个方法都删除了用户权限验证，属于同类型问题（S033），合并为一个缺陷问题，举例说明：updateUserProfile方法删除了userId与currentUserId比较逻辑，updateEmail方法也删除了同样逻辑\n4. 分数计算：\n   - Q02扣1分（安全缺陷S033），总分 = 10 - 1 = 9分\n5. 自我审查：\n   - ✓已输出思考和JSON\n   - ✓缺陷真实存在：删除权限校验引入安全风险\n   - ✓扣分合理：1个缺陷，扣1分\n   - ✓同类已合并：两个方法权限检查删掉归为一个缺陷\n   - ✓命名/格式没有问题，无改进建议\n【思考结束】\n\n{\n  \"总分\": \"9.0\",\n  \"整体描述\": \"发现1个缺陷需修改（缺少权限校验），1个改进建议\",\n  \"各评审项扣分明细\": {\n    \"功能实现的正确性与健壮性\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"安全性与潜在风险\": {\n      \"评审项扣分\": \"1\",\n      \"扣分详情说明\": \"1个缺陷：删除了用户权限校验逻辑（Q02-S033），扣1分\"\n    },\n    \"是否符合最佳实践\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"性能与资源利用效率\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"代码规范性\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    }\n  },\n  \"问题列表\": [\n    {\n      \"问题等级\": \"缺陷\",\n    "
+    },
+    {
+      "case_id": "Q06_case003",
+      "case_name": "case003_删除他人数据",
+      "dimension": "Q06_水平越权",
+      "detected": true,
+      "should_detect": true,
+      "violations": [
+        "水平越权"
+      ],
+      "expected_issues": [
+        "水平越权",
+        "可删除他人数据",
+        "缺少所有权验证"
+      ],
+      "score": 3,
+      "is_correct": true,
+      "is_tp": true,
+      "is_fp": false,
+      "is_fn": false,
+      "is_tn": false,
+      "elapsed_time": 5.307363986968994,
+      "raw_output": "【思考】\n1. 问题识别：\n   - 第14行：删除了权限校验逻辑，即`data.getOwnerId().equals(currentUserId)`的判断\n   - 第15行：删除了抛出`UnauthorizedException`异常的代码\n   - 删除了用户上下文获取逻辑，以及获取当前用户ID的操作\n2. 问题归类与判断：\n   - 权限校验被完全移除 → 属于安全风险，应归为Q02（安全性与潜在风险）的缺陷，违反M098（用户个人页面或功能必须进行权限控制校验）\n   - 新增代码不含NPE风险、逻辑错误、性能瓶颈，符合编码规范，不构成其他级别问题\n3. 同类问题合并：\n   - 无其他同类问题需要合并\n4. 分数计算：\n   - 1个缺陷：权限校验被删除，属于严重安全问题（Q02-M098），扣2分\n   - 总分 = 10 - 2 = 8分\n5. 自我审查：✓已输出思考和JSON ✓缺陷真实存在 ✓扣分合理 ✓同类已合并 ✓命名/格式归为建议\n【思考结束】\n\n{\n  \"总分\": \"8.0\",\n  \"整体描述\": \"发现1个严重安全缺陷需修改（权限校验被移除），其余部分符合规范\",\n  \"各评审项扣分明细\": {\n    \"功能实现的正确性与健壮性\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"安全性与潜在风险\": {\n      \"评审项扣分\": \"2\",\n      \"扣分详情说明\": \"1个缺陷：权限校验被完全移除，导致任何人都可以删除任意数据（违反M098），扣2分\"\n    },\n    \"是否符合最佳实践\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"性能与资源利用效率\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"代码规范性\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    }\n  },\n  \"问题列表\": [\n    {\n      \"问题等级\": \"缺陷\",\n      \"文件路径\": \"after.java\",\n      \"起始行\": \"14\",\n      \"结束行\": \""
+    },
+    {
+      "case_id": "Q07_case001",
+      "case_name": "case001_普通用户删除用户",
+      "dimension": "Q07_垂直越权",
+      "detected": true,
+      "should_detect": true,
+      "violations": [
+        "垂直越权"
+      ],
+      "expected_issues": [
+        "垂直越权",
+        "缺少角色验证",
+        "普通用户可删除用户"
+      ],
+      "score": 3,
+      "is_correct": true,
+      "is_tp": true,
+      "is_fp": false,
+      "is_fn": false,
+      "is_tn": false,
+      "elapsed_time": 6.117254972457886,
+      "raw_output": "【思考】\n1. 问题识别：\n   - 第10行：删除了deleteUser方法中原本的权限检查逻辑（operatorId获取、User查找、角色判断）\n   - 第21行：删除了updateUserRole方法中原本的权限检查逻辑（operatorId获取、User查找、角色判断）\n   - 两个方法均原本包含管理员权限校验，现被移除\n2. 问题归类与判断：\n   - 权限控制逻辑被移除 → 属于安全风险（违反M098、M101）→ 缺陷 → Q02-M098 → 扣2分\n   - 权限检查被彻底取消，可能造成非管理员用户执行敏感操作 → 严重安全隐患\n3. 同类问题合并：\n   - 两个方法都缺失管理员权限检查逻辑，合并为1个问题描述，分别指出deleteUser和updateUserRole方法的问题\n4. 分数计算：\n   - Q02扣2分（M098）\n   - 总扣分=2分\n   - 总分=10-2=8分\n5. 自我审查：\n   - ✓ 已输出思考和JSON\n   - ✓ 缺陷真实存在，涉及权限控制\n   - ✓ 扣分合理，违反安全规则\n   - ✓ 同类已合并\n   - ✓ 命名/格式归为建议（不涉及）\n【思考结束】\n\n```json\n{\n  \"总分\": \"8.0\",\n  \"整体描述\": \"发现1个严重安全缺陷需修改（管理员权限检查被移除），影响功能安全性\",\n  \"各评审项扣分明细\": {\n    \"功能实现的正确性与健壮性\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"安全性与潜在风险\": {\n      \"评审项扣分\": \"2\",\n      \"扣分详情说明\": \"1个缺陷：权限控制逻辑被移除（违反M098），导致非管理员也可能执行删除/更新用户角色操作，存在严重安全隐患\"\n    },\n    \"是否符合最佳实践\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"性能与资源利用效率\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"代码规范性\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    }\n  "
+    },
+    {
+      "case_id": "Q07_case002",
+      "case_name": "case002_访问管理功能",
+      "dimension": "Q07_垂直越权",
+      "detected": true,
+      "should_detect": true,
+      "violations": [
+        "垂直越权"
+      ],
+      "expected_issues": [
+        "垂直越权",
+        "管理功能缺少角色验证",
+        "只检查登录状态"
+      ],
+      "score": 3,
+      "is_correct": true,
+      "is_tp": true,
+      "is_fp": false,
+      "is_fn": false,
+      "is_tn": false,
+      "elapsed_time": 32.29308485984802,
+      "raw_output": "【思考】\n1. 问题识别：\n   - 第16-20行：删除了权限验证逻辑，包括`userService.findById(userId)`和`user.hasRole(\"ADMIN\")`判断\n   - 第32-36行：同样删除了权限验证逻辑\n   - 删除的权限控制代码是确保管理员才能访问相关接口的关键逻辑\n\n2. 问题归类与判断：\n   - 权限验证被完全移除 → 这是安全缺陷 → Q02-M098 → 扣2分\n   - 移除了关键的权限校验逻辑，使得普通用户也可能调用管理员接口 → 严重安全漏洞（违反安全规约M098：用户个人页面或功能必须进行权限控制校验）\n\n3. 同类问题合并：\n   - 两处接口都删除了权限验证逻辑，但现总结为一处严重问题。典型例子为：\n     - `getSystemConfig`方法原含`user.hasRole(\"ADMIN\")` 权限检查被移除\n     - `updateConfig`方法原含`user.hasRole(\"ADMIN\")` 权限检查也被移除\n\n4. 分数计算：\n   - Q02扣2分（安全缺陷，用户权限控制丢失）\n   - 总扣分 = 2.0分\n   - 总得分 = 10 - 2 = 8.0分\n\n5. 自我审查：\n   - ✓已输出思考和JSON\n   - ✓缺陷（权限被移除）真实存在\n   - ✓该缺陷会导致严重安全问题，必须修改\n   - ✓同类问题已合并\n   - ✓命名/格式问题未计入缺陷\n【思考结束】\n\n```json\n{\n  \"总分\": \"8.0\",\n  \"整体描述\": \"发现1个严重安全缺陷，普通用户可访问管理员接口（Q02-M098），需立即修复\",\n  \"各评审项扣分明细\": {\n    \"功能实现的正确性与健壮性\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无相关问题\"\n    },\n    \"安全性与潜在风险\": {\n      \"评审项扣分\": \"2\",\n      \"扣分详情说明\": \"1个缺陷：移除了管理员接口的关键权限控制逻辑（Q02-M098），允许非管理员访问管理员接口，存在严重安全风险\"\n    },\n    \"是否符合最佳实践\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无相关问题\"\n    },\n "
+    },
+    {
+      "case_id": "case001_BadNaming",
+      "case_name": "case001_BadNaming",
+      "dimension": "Q05_代码规范性",
+      "detected": true,
+      "should_detect": true,
+      "violations": [
+        "命名规范",
+        "拼音命名",
+        "可读性"
+      ],
+      "expected_issues": [
+        "命名规范",
+        "拼音命名",
+        "可读性"
+      ],
+      "score": 3,
+      "is_correct": true,
+      "is_tp": true,
+      "is_fp": false,
+      "is_fn": false,
+      "is_tn": false,
+      "elapsed_time": 7.704983949661255,
+      "raw_output": "【思考】\n1. 问题识别：\n   - 第2行：方法名使用拼音\"daYin\"而非英文命名，违反命名规范（M004）\n   - 第3行：参数名\"kehu\"为拼音，违反命名规范（M004）\n   - 第4行：变量名\"jine\"为拼音，违反命名规范（M004）\n   - 第5行：变量名\"s\"无意义，违反命名规范（M004）\n   - 第6行：注释为\"拼音命名\"，属于代码风格问题，可接受但不规范\n   - 第7行：方法名\"suan\"使用拼音而非英文命名，违反命名规范（M004）\n2. 问题归类与判断：\n   - 方法名、参数名、变量名使用拼音 → M002（禁止拼音英文混合或中文命名）→ 问题严重性为\"改进建议\"，但根据规则M004也涉及命名风格问题，建议统一归类为\"改进建议\"（Q05-M004）。\n   - 拼音命名、变量名无意义 → 这些属于命名规范性问题（Q05-M004），不涉及安全、性能、逻辑错误，属于可选优化范畴，暂定为“改进建议”，不计入扣分。\n3. 同类问题合并：\n   - 以上涉及命名的全部属于同一类别（M004），归为1个问题，说明：方法名daYin、参数名kehu、变量名jine、变量名s违反了lowerCamelCase命名规范。\n4. 分数计算：\n   - 本段代码无严重缺陷项，所有问题为命名/风格问题，归为改进建议，不扣分。\n   - 总分 = 10 - 0 = 10分。\n5. 自我审查：✓已输出思考和JSON ✓缺陷真实存在 ✓扣分合理 ✓同类已合并 ✓命名/格式归为建议\n【思考结束】\n\n{\n  \"总分\": \"10.0\",\n  \"整体描述\": \"代码中存在多处命名不规范问题（拼音命名、无意义变量名），建议遵循lowerCamelCase风格提升可读性\",\n  \"各评审项扣分明细\": {\n    \"功能实现的正确性与健壮性\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无功能缺陷\"\n    },\n    \"安全性与潜在风险\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无安全风险\"\n    },\n    \"是否符合最佳实践\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无不符合最佳实践问题\"\n    },\n    \"性能与资源利用效率\": {"
+    },
+    {
+      "case_id": "case001_CascadeNPE",
+      "case_name": "case001_CascadeNPE",
+      "dimension": "Q01_功能正确性与健壮性",
+      "detected": true,
+      "should_detect": true,
+      "violations": [
+        "空指针异常",
+        "NPE"
+      ],
+      "expected_issues": [
+        "空指针异常",
+        "NPE",
+        "级联调用"
+      ],
+      "score": 3,
+      "is_correct": true,
+      "is_tp": true,
+      "is_fp": false,
+      "is_fn": false,
+      "is_tn": false,
+      "elapsed_time": 51.224895000457764,
+      "raw_output": "【思考】\n1. 问题识别：\n   - 第3行：新增注释指出当前代码存在NPE风险，但原实现未做空值检查\n   - 第4行：原代码`return user.getAddress().getCity().getName();`直接链式调用，无任何空值判断\n2. 问题归类与判断：\n   - 当前代码直接链式调用对象属性，一旦任意对象为null（user、address或city）将抛出NullPointerException（NPE）\n   - 违反规则M031：equals方法易抛NPE，应用常量或确定有值的对象调用（虽然此处不调用equals，但有明显NPE风险）\n   - 此类问题属于功能性缺陷且严重影响代码健壮性，应标记为缺陷 → Q01-M031 → 扣1分\n3. 同类问题合并：\n   - 该问题在原代码中表现为0处风险（因为这是新增的改动说明），但一旦原始代码暴露NPE风险，视为单个典型问题\n4. 分数计算：\n   - Q01扣1分（功能实现的正确性与健壮性）\n   - 总扣分 = 1.0分\n   - 最终得分 = 10 - 1 = 9.0分\n5. 自我审查：\n   ✓ 已输出思考过程和JSON\n   ✓ 缺陷真实存在（NPE风险）\n   ✓ 扣分合理（1分）\n   ✓ 命名/格式问题归为建议\n   ✓ 同类问题已分析\n\n【思考结束】\n\n{\n  \"总分\": \"9.0\",\n  \"整体描述\": \"发现1个缺陷需修改（NPE风险），无改进建议\",\n  \"各评审项扣分明细\": {\n    \"功能实现的正确性与健壮性\": {\n      \"评审项扣分\": \"1\",\n      \"扣分详情说明\": \"1个缺陷：链式调用未做空值校验易引发空指针异常（Q01-M031），扣1分\"\n    },\n    \"安全性与潜在风险\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"是否符合最佳实践\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"性能与资源利用效率\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"代码规范性\": {\n      \"评审项扣分\": \"0\",\n      \"扣"
+    },
+    {
+      "case_id": "case001_LoopQuery",
+      "case_name": "case001_LoopQuery",
+      "dimension": "Q04_性能与资源效率",
+      "detected": true,
+      "should_detect": true,
+      "violations": [
+        "循环查询",
+        "N+1",
+        "性能问题"
+      ],
+      "expected_issues": [
+        "循环查询",
+        "N+1",
+        "性能问题"
+      ],
+      "score": 3,
+      "is_correct": true,
+      "is_tp": true,
+      "is_fp": false,
+      "is_fn": false,
+      "is_tn": false,
+      "elapsed_time": 19.35301399230957,
+      "raw_output": "【思考】\n1. 问题识别：\n   - 第4行：循环查询数据库（N+1问题），严重影响性能\n   - 第5行：未使用批量查询方法findByIds，而是单条查询，属于严重性能问题\n2. 问题归类与判断：\n   - 循环查库导致N+1查询问题 → O006（高并发死链风险）和Q04（性能与资源利用效率）→ 实际影响远超规则，属于严重性能缺陷 → Q04-O006 → 扣1分\n3. 同类问题合并：\n   - 所有N+1查询问题统一为1个问题\n4. 分数计算：\n   - Q04扣1分（性能问题）\n5. 自我审查：✓已输出思考和JSON ✓缺陷真实存在 ✓扣分合理 ✓同类已合并 ✓无命名/格式问题\n【思考结束】\n\n```json\n{\n  \"总分\": \"9.0\",\n  \"整体描述\": \"发现1个缺陷需修改（严重性能问题，N+1查询），无改进建议\",\n  \"各评审项扣分明细\": {\n    \"功能实现的正确性与健壮性\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无功能错误或逻辑缺陷问题\"\n    },\n    \"安全性与潜在风险\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无安全风险问题\"\n    },\n    \"是否符合最佳实践\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无不符合最佳实践的代码\"\n    },\n    \"性能与资源利用效率\": {\n      \"评审项扣分\": \"1\",\n      \"扣分详情说明\": \"1个缺陷：存在严重N+1查询问题（Q04-O006），循环查库导致性能低下\"\n    },\n    \"代码规范性\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无代码格式或规范问题\"\n    }\n  },\n  \"问题列表\": [\n    {\n      \"问题等级\": \"缺陷\",\n      \"文件路径\": \"after.java\",\n      \"起始行\": \"4\",\n      \"结束行\": \"10\",\n      \"问题描述\": \"存在N+1查询问题（循环查库），每次循环查询数据库一次，严重影响系统性能（违反O006）\",\n      \"代码建议\": \"请使用批量查询接口 findByIds(List<Lo"
+    },
+    {
+      "case_id": "case001_MagicValues",
+      "case_name": "case001_MagicValues",
+      "dimension": "Q03_最佳实践",
+      "detected": true,
+      "should_detect": true,
+      "violations": [
+        "魔法值"
+      ],
+      "expected_issues": [
+        "魔法值",
+        "硬编码",
+        "Magic Number"
+      ],
+      "score": 3,
+      "is_correct": true,
+      "is_tp": true,
+      "is_fp": false,
+      "is_fn": false,
+      "is_tn": false,
+      "elapsed_time": 44.541133880615234,
+      "raw_output": "【思考】\n1. 问题识别：\n   - 第3行：使用了魔法数字 1、2、3 替代枚举值 OrderStatus.PAID、OrderStatus.CANCELLED 等，违反了M014规则（不允许魔法值直接出现在代码中）。\n   - 第3行：在注释中指出“魔法数字 1, 2, 3，含义不明”，已经指出问题但未修正，属于明知故犯。\n   - 第5行：逻辑新增了 `order.getStatus() == 3` 分支，但代码未进行相应的说明或注释，不易理解新增逻辑。\n2. 问题归类与判断：\n   - 魔法数字问题 → M014 → 缺陷 → Q01-M014 → 扣1分\n   - 逻辑可读性与新增分支缺失注释 → 改进建议 → 不扣分\n3. 同类问题合并：\n   - 原本使用状态码（魔法数字）的共有3个分支（1, 2, 3），应合并为1个问题描述，示例：注释中明确说明魔法数字含义模糊，实际代码中使用了order.getStatus() == 1等魔法数字替代了可读的枚举值。\n4. 分数计算：\n   - Q01扣1分（M014）\n   - 总扣分 = 1.0\n   - 最终得分 = 10 - 1 = 9分\n5. 自我审查：\n   ✓已输出思考和JSON  \n   ✓缺陷真实存在（魔法数字替代枚举值）  \n   ✓扣分合理（1.0分）  \n   ✓同类已合并（魔法数字共3处）  \n   ✓命名/格式归为建议（仅此处表述有问题且影响理解，不构成严重缺陷）  \n【思考结束】\n\n```json\n{\n  \"总分\": \"9.0\",\n  \"整体描述\": \"发现1个缺陷需修改（魔法数字替代枚举），无改进建议\",\n  \"各评审项扣分明细\": {\n    \"功能实现的正确性与健壮性\": {\n      \"评审项扣分\": \"1\",\n      \"扣分详情说明\": \"1个缺陷：使用魔法数字1、2、3替代枚举常量（违反M014），扣1分\"\n    },\n    \"安全性与潜在风险\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"是否符合最佳实践\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"性能与资源利用效率\": {\n      \"评审项扣分\": \"0\",\n   "
+    },
+    {
+      "case_id": "case002_ComplexMethod",
+      "case_name": "case002_ComplexMethod",
+      "dimension": "Q05_代码规范性",
+      "detected": false,
+      "should_detect": true,
+      "violations": [],
+      "expected_issues": [
+        "方法过长",
+        "圈复杂度",
+        "重构"
+      ],
+      "score": 10,
+      "is_correct": false,
+      "is_tp": false,
+      "is_fp": false,
+      "is_fn": true,
+      "is_tn": false,
+      "elapsed_time": 51.94589686393738,
+      "raw_output": "【思考】\n1. 问题识别：\n   - 第3-15行：validate方法存在深度嵌套（超过5层），违反S028（控制语句）与M069（控制语句）\n   - 第3-15行：validate方法逻辑冗余且难以维护（使用多层if判断对象非空和字段值），未利用短路特性优化，反例：真正的有效逻辑仅两行：user != null && user.getName() != null && user.getName().length() > 0 && user.getAge() > 18 && user.getEmail() != null && user.getEmail().contains(\"@\")\n   - 第4行：命名违反S001（使用完整单词）。`user`是有效变量名，但存在方法逻辑变更本质为冗余嵌套的问题\n   - 第16行：最后return false在没有包装或真实职责逻辑下直接返回（违反M067中使用break/return/continue终止case后需注释说明或default）\n2. 问题归类与判断：\n   - 深度嵌套与逻辑冗余 → 属于M069和S028规范，考虑为功能性风险（特例：并非逻辑错误、语法错误或崩溃风险），但影响可读性和维护性 → 判断为\"改进建议\"（实际应在Q03-Q05中多归类）\n   - 命名规范 ✅符合要求，但并非当前方法功能核心问题 → 已归类为改进建议\n3. 同类问题合并：\n   - 所有嵌套和冗余逻辑问题归为1个改进建议（第3-15行为典型示例）：违反M069和S028 → Q03（最佳实践）中归类为S028\n   - 违反S028（嵌套过深）但在没有外部评估结构化改进规则下，保持为Q03\n4. 分数计算：\n   - 总共1个改进建议（Q03），不扣分；\n   - 行数虽短但嵌套多，考虑是否该判定为Q04层面模块混叠协作问题，但在规则未明确强关联模块级优化下，判定为非缺陷\n5. 自我审查：\n   - ✓ 已输出思考和JSON\n   - ✓ 缺陷真实存在（逻辑冗余，但不影响归类为建议）\n   - ✓ 扣分合理（无缺陷）\n   - ✓ 同类已合并（没有重复项）\n   - ✓ 命名/格式归为建议（符合规则）\n\n【思考结束】\n\n{\n  \"总分\": \"10.0\",\n  \"整体描述\": \"发现1个改进建议（代码结构冗余和深层嵌套，违反S"
+    },
+    {
+      "case_id": "case002_ResourceLeak",
+      "case_name": "case002_ResourceLeak",
+      "dimension": "Q01_功能正确性与健壮性",
+      "detected": true,
+      "should_detect": true,
+      "violations": [
+        "资源泄漏",
+        "连接未关闭",
+        "Connection"
+      ],
+      "expected_issues": [
+        "资源泄漏",
+        "连接未关闭",
+        "Connection"
+      ],
+      "score": 3,
+      "is_correct": true,
+      "is_tp": true,
+      "is_fp": false,
+      "is_fn": false,
+      "is_tn": false,
+      "elapsed_time": 9.169719219207764,
+      "raw_output": "【思考】\n1. 问题识别：\n   - 第3行：直接获取数据库连接，未使用 try-with-resources 或 try-finally 块确保连接关闭\n   - 第4行：调用 exportToCsv(conn) 方法\n   - 第5行：缺少对 Connection 的关闭操作，可能导致资源泄漏\n2. 问题归类与判断：\n   - 资源未关闭 → M086 → 缺陷 → Q02-M086 → 扣1分\n3. 同类问题合并：\n   - 无同类问题需要合并。\n4. 分数计算：\n   - Q02扣1分（资源未关闭导致潜在的内存泄漏或连接池耗尽风险）\n   - 总扣分 = 1.0分\n   - 总分 = 10 - 1 = 9.0分\n5. 自我审查：\n   - ✓已输出思考和JSON\n   - ✓缺陷真实存在（忘记关闭Connection）\n   - ✓扣分合理（违反M086，属于资源管理问题）\n   - ✓无同类问题需合并\n   - ✓命名/格式问题未被误判为缺陷\n【思考结束】\n\n```json\n{\n  \"总分\": \"9.0\",\n  \"整体描述\": \"发现1个缺陷需修改（资源未关闭），无改进建议\",\n  \"各评审项扣分明细\": {\n    \"功能实现的正确性与健壮性\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无相关缺陷\"\n    },\n    \"安全性与潜在风险\": {\n      \"评审项扣分\": \"1\",\n      \"扣分详情说明\": \"1个缺陷：数据库连接未关闭（Q02-M086），扣1分\"\n    },\n    \"是否符合最佳实践\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"性能与资源利用效率\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"代码规范性\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    }\n  },\n  \"问题列表\": [\n    {\n      \"问题等级\": \"缺陷\",\n      \"文件路径\": \"after.java\",\n      \"起始行\": \"3\",\n      \"结束行\": \"5\",\n      \"问题描述\":"
+    },
+    {
+      "case_id": "case002_StringConcatInLoop",
+      "case_name": "case002_StringConcatInLoop",
+      "dimension": "Q04_性能与资源效率",
+      "detected": true,
+      "should_detect": true,
+      "violations": [
+        "字符串拼接",
+        "StringBuilder",
+        "性能"
+      ],
+      "expected_issues": [
+        "字符串拼接",
+        "StringBuilder",
+        "性能"
+      ],
+      "score": 3,
+      "is_correct": true,
+      "is_tp": true,
+      "is_fp": false,
+      "is_fn": false,
+      "is_tn": false,
+      "elapsed_time": 8.142436742782593,
+      "raw_output": "【思考】\n1. 问题识别：\n   - 第3行：使用了性能低下的字符串拼接方式 `result += line + \"\\n\"`，而不是更高效的 `StringBuilder`。\n   - 第4行：添加了注释 \"性能低下的字符串拼接\"，表明提交者意识到了性能问题。\n   - 第5行：使用了效率低下的 += 拼接方式，特别是在循环中反复拼接字符串会导致频繁创建String对象，影响性能。\n2. 问题归类与判断：\n   - 字符串拼接方式不当 → O006（性能相关）→ Q04-O006 → 扣1分\n   - 该问题直接影响代码运行效率，在高频率调用或大对象集合时会产生明显性能瓶颈\n   - 此类操作违反S016建议使用StringBuilder.append()进行字符串拼接的规范\n3. 同类问题合并：\n   - 只有1处此类问题，不需合并\n4. 分数计算：\n   - Q04扣1分（性能问题），总分=10-1=9\n5. 自我审查：\n   - ✓已输出思考和JSON\n   - ✓缺陷真实存在（字符串拼接效率低）\n   - ✓扣分合理（0.25的倍数，该缺陷应扣1分）\n   - ✓同类已合并（无同类）\n   - ✓命名/格式归为建议（此问题为性能缺陷）\n【思考结束】\n\n```json\n{\n  \"总分\": \"9.0\",\n  \"整体描述\": \"发现1个缺陷需修改（性能问题），无改进建议\",\n  \"各评审项扣分明细\": {\n    \"功能实现的正确性与健壮性\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"安全性与潜在风险\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"是否符合最佳实践\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"性能与资源利用效率\": {\n      \"评审项扣分\": \"1\",\n      \"扣分详情说明\": \"1个缺陷：循环中使用低效字符串拼接方式（Q04-O006），扣1分\"\n    },\n    \"代码规范性\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    }\n  },\n  \"问题列表\": [\n   "
+    },
+    {
+      "case_id": "case002_SwallowException",
+      "case_name": "case002_SwallowException",
+      "dimension": "Q03_最佳实践",
+      "detected": true,
+      "should_detect": true,
+      "violations": [
+        "吞噬异常",
+        "日志缺失"
+      ],
+      "expected_issues": [
+        "吞噬异常",
+        "日志缺失",
+        "堆栈丢失"
+      ],
+      "score": 3,
+      "is_correct": true,
+      "is_tp": true,
+      "is_fp": false,
+      "is_fn": false,
+      "is_tn": false,
+      "elapsed_time": 7.565762042999268,
+      "raw_output": "【思考】\n1. 问题识别：\n   - 第6行：原代码使用logger.error记录异常并抛出TaskException，现在改为直接输出到控制台(System.out.println)，丢失了堆栈信息\n   - 第6行：使用System.out.print而不是日志框架，不规范且难以管理\n   - 第7行：新增注释说明“甚至可能 System.out”显示出对错误处理方式的认知不足\n\n2. 问题归类与判断：\n   - 丢失异常堆栈信息 → M089（异常捕获后应保留完整堆栈信息）→ 缺陷 → Q03-M089 → 扣1分\n   - 使用System.out.println而非日志框架 → S041（谨慎记录日志，生产环境应使用日志框架）→ 缺陷 → Q04-S041 → 扣0.5分\n   - 错误处理方式过于简化，有 silencing exception 的潜在风险 → Q01-其他 → 扣0.5分（考虑到已保留异常抛出机制，个人认为此举不是逻辑错误）\n\n3. 同类问题合并：\n   - 无同类问题可合并，涉及多个独立问题。\n\n4. 分数计算：\n   - Q03扣1分（M089）\n   - Q04扣0.5分（S041）\n   - Q01扣0.5分（简化异常处理可能丢失关键信息）\n   - 总扣分=2.0分，总分=8.0分\n\n5. 自我审查：\n   - ✓已输出思考和JSON\n   - ✓缺陷真实存在\n   - ✓扣分合理\n   - ✓同类已合并（无合并项）\n   - ✓命名/格式归为建议（此为内容变更，非命名）  \n   - ✓提交说明与代码变更基本对应\n\n【思考结束】\n\n{\n  \"总分\": \"8.0\",\n  \"整体描述\": \"发现3个缺陷需修改：1个严重异常信息缺失，1个日志都不规范，1个异常处理过于简化\",\n  \"各评审项扣分明细\": {\n    \"功能实现的正确性与健壮性\": {\n      \"评审项扣分\": \"0.5\",\n      \"扣分详情说明\": \"1个缺陷：异常处理过于简化，可能导致错误未被正确跟踪或报告（Q01-其他），扣0.5分\"\n    },\n    \"安全性与潜在风险\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"是否符合最佳实践\": {\n      \"评审项扣分\": \""
+    },
+    {
+      "case_id": "real_trap001_AdminAccess",
+      "case_name": "real_trap001_AdminAccess",
+      "dimension": "Q06_水平越权",
+      "detected": true,
+      "should_detect": false,
+      "violations": [],
+      "expected_issues": [],
+      "score": 10,
+      "is_correct": false,
+      "is_tp": false,
+      "is_fp": true,
+      "is_fn": false,
+      "is_tn": false,
+      "elapsed_time": 45.81841278076172,
+      "raw_output": "【思考】\n1. 问题识别：\n   - 第4行：方法名从`getUser`改为`getUserForAdmin`，但功能实质相同，属于命名不规范问题。\n   - 第5行：方法未进行参数校验，存在潜在的服务端输入验证缺失风险。\n   - 第6行：方法执行过程无日志记录，不利于问题排查和审计。\n2. 问题归类与判断：\n   - 方法命名不符合lowerCamelCase规范 → M004 → 改进建议 → 不扣分\n   - 缺少参数校验 → S033（接口入参保护） → 缺陷 → Q01-S033 → 扣0.5分\n   - 无日志记录 → S041（谨慎记录日志） → 改进建议 → 不扣分\n3. 同类问题合并：\n   - 无同类问题合并。\n4. 分数计算：\n   - Q01扣0.5分（S033）。\n   - 总分 = 10 - 0.5 = 9.5分。\n5. 自我审查：\n   - ✓已输出思考和JSON\n   - ✓缺陷真实存在（缺少入参校验）\n   - ✓扣分合理\n   - ✓命名/格式归为建议\n   - ✓无重复问题\n【思考结束】\n\n```json\n{\n  \"总分\": \"9.5\",\n  \"整体描述\": \"发现1个缺陷需修改（缺少入参校验），2个改进建议（命名、日志）\",\n  \"各评审项扣分明细\": {\n    \"功能实现的正确性与健壮性\": {\n      \"评审项扣分\": \"0.5\",\n      \"扣分详情说明\": \"1个缺陷：缺少接口入参保护（Q01-S033），扣0.5分\"\n    },\n    \"安全性与潜在风险\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"是否符合最佳实践\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"性能与资源利用效率\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"代码规范性\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"2个改进建议：1个命名不规范（Q05-M004），1个日志记录缺失（Q05-S041），不扣分\"\n    }\n  },\n  \"问题列表\": [\n    {\n      \"问题等级"
+    },
+    {
+      "case_id": "real_trap001_ExpectedException",
+      "case_name": "real_trap001_ExpectedException",
+      "dimension": "Q03_最佳实践",
+      "detected": false,
+      "should_detect": false,
+      "violations": [],
+      "expected_issues": [],
+      "score": 10,
+      "is_correct": true,
+      "is_tp": false,
+      "is_fp": false,
+      "is_fn": false,
+      "is_tn": true,
+      "elapsed_time": 23.60925579071045,
+      "raw_output": "【思考】\n1. 问题识别：\n   - 第5行：catch块捕获了BadCredentialsException，但没有对异常进行处理或记录详细信息（仅记录了warn日志）\n   - 第7行：抛出了BusinessException，但未保留原始异常栈信息，可能导致问题定位困难\n   - 第6行：异常处理方式中，虽然日志记录警告级别，但对异常堆栈信息缺失是严重问题\n2. 问题归类与判断：\n   - 异常处理不完整，日志记录丢失原始堆栈信息 → 缺陷 → Q01-其他 → 扣1分（逻辑缺陷）\n   - 抛出新异常，未传递原异常上下文 → 缺陷 → Q01-其他 → 扣1分（异常链未完整）\n3. 同类问题合并：\n   - 本代码段中仅存在一处异常处理不当的问题，属于单一缺陷，无需合并\n4. 分数计算：\n   - Q01扣2分（合计2个缺陷，共扣2分）\n   - 总分 = 10 - 2.0 = 8.0分\n5. 自我审查：\n   - ✓已输出思考和JSON\n   - ✓缺陷确实存在且影响功能健壮性\n   - ✓扣分合理\n   - ✓问题仅1处，无需合并\n   - ✓命名/格式等无问题，未标记为缺陷\n【思考结束】\n\n```json\n{\n  \"总分\": \"8.0\",\n  \"整体描述\": \"发现2个缺陷需修改，影响异常处理的完整性和可追踪性\",\n  \"各评审项扣分明细\": {\n    \"功能实现的正确性与健壮性\": {\n      \"评审项扣分\": \"2\",\n      \"扣分详情说明\": \"发现2个缺陷：1）异常处理时丢失原始堆栈信息（Q01-其他），2）抛出新异常时未传递原始异常上下文（Q01-其他），累计扣2分\"\n    },\n    \"安全性与潜在风险\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"是否符合最佳实践\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"性能与资源利用效率\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"代码规范性\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    }\n  },\n  \"问题列表\":"
+    },
+    {
+      "case_id": "real_trap001_LambdaShortVar",
+      "case_name": "real_trap001_LambdaShortVar",
+      "dimension": "Q05_代码规范性",
+      "detected": false,
+      "should_detect": false,
+      "violations": [],
+      "expected_issues": [],
+      "score": 10,
+      "is_correct": true,
+      "is_tp": false,
+      "is_fp": false,
+      "is_fn": false,
+      "is_tn": true,
+      "elapsed_time": 22.83862805366516,
+      "raw_output": "【思考】\n1. 问题识别：\n   - 第4行：Lambda表达式参数使用了短变量名x，违反了命名规范M004（方法名、参数名、成员变量、局部变量应使用lowerCamelCase风格）\n   - 第5行：Lambda表达式参数使用了短变量名n，同样违反M004\n2. 问题归类与判断：\n   - Lambda参数命名不符合lowerCamelCase规范 → M004 → 改进建议 → 不扣分\n3. 同类问题合并：\n   - 2处变量命名规范问题（x和n）合并为1个问题，因属于同一类问题且仅涉及Lambda参数命名\n4. 分数计算：\n   - 无缺陷，无扣分\n5. 自我审查：\n   - ✓已输出思考和JSON\n   - ✓缺陷真实存在（命名不规范但属于轻微问题）\n   - ✓扣分合理（仅改进建议，不扣分）\n   - ✓同类已合并\n   - ✓命名问题归为建议无误\n【思考结束】\n\n```json\n{\n  \"总分\": \"10.0\",\n  \"整体描述\": \"无缺陷需修改，1个改进建议\",\n  \"各评审项扣分明细\": {\n    \"功能实现的正确性与健壮性\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"安全性与潜在风险\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"是否符合最佳实践\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"性能与资源利用效率\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"代码规范性\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"1个改进建议：Lambda表达式中变量名x和n不符合lowerCamelCase规范（Q05-M004），不扣分\"\n    }\n  },\n  \"问题列表\": [\n    {\n      \"问题等级\": \"改进建议\",\n      \"文件路径\": \"after.java\",\n      \"起始行\": \"4\",\n      \"结束行\": \"5\",\n      \"问题描述\": \"Lambda表达式中参数x和n命名不符合lowe"
+    },
+    {
+      "case_id": "real_trap001_PublicApi",
+      "case_name": "real_trap001_PublicApi",
+      "dimension": "Q07_垂直越权",
+      "detected": true,
+      "should_detect": false,
+      "violations": [],
+      "expected_issues": [],
+      "score": 10,
+      "is_correct": false,
+      "is_tp": false,
+      "is_fp": true,
+      "is_fn": false,
+      "is_tn": false,
+      "elapsed_time": 37.21586585044861,
+      "raw_output": "【思考】\n1. 问题识别：\n   - 第1行：新增了@RestController注解，符合Spring MVC规范\n   - 第2行：新增了@RequestMapping(\"/api/public\")，指定了公共API基础路径\n   - 第4行：删除了原有的@PreAuthorize(\"isAuthenticated()\")注解，原权限控制被移除\n   - 第5-9行：原方法被替换为新的@GetMapping(\"/system-status\")方法\n   - 第7行：新方法名getSystemStatus()符合lowerCamelCase命名规范\n   - 第8行：代码逻辑未见明显错误或资源泄漏等问题\n2. 问题归类与判断：\n   - 删除@PreAuthorize注解：虽然根据提交信息与上下文说明是公开接口，但未影响功能实现、安全机制等，不属于缺陷，属于线上问题修改（减少代码层级、提高可维护性）→ 改进建议，不扣分。\n   - 新增注解与方法符合规范，语义清晰，无其他潜在缺陷。\n   - 无命名、格式问题（M004等），无资源未关闭（M086）、NPE风险（M031）等，这些不构成问题。\n3. 同类问题合并：\n   - 无同类问题需合并。\n4. 分数计算：\n   - 本提交不存在任何缺陷，仅一个改进建议（注解删除），属于轻度代码结构调整。\n   - Q01-Q05各项均无扣分。\n   - 总分 = 10.0 - 0.0 = 10.0\n5. 自我审查：✓已输出思考和JSON ✓缺陷真实存在 ✓扣分合理 ✓同类已合并 ✓命名/格式归为建议\n【思考结束】\n\n```json\n{\n  \"总分\": \"10.0\",\n  \"整体描述\": \"无缺陷，1个改进建议（权限注解移除）\",\n  \"各评审项扣分明细\": {\n    \"功能实现的正确性与健壮性\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"安全性与潜在风险\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"是否符合最佳实践\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"性能与资源利用效率\": {\n      \"评审项扣分"
+    },
+    {
+      "case_id": "real_trap001_intentional_npe",
+      "case_name": "real_trap001_intentional_npe",
+      "dimension": "Q01_功能正确性与健壮性",
+      "detected": false,
+      "should_detect": false,
+      "violations": [],
+      "expected_issues": [],
+      "score": 10,
+      "is_correct": true,
+      "is_tp": false,
+      "is_fp": false,
+      "is_fn": false,
+      "is_tn": true,
+      "elapsed_time": 45.68121910095215,
+      "raw_output": "【思考】\n1. 问题识别：\n   - 第3行：原本的空值判断逻辑被替换为直接使用默认值并调用toUpperCase()，存在潜在NPE风险。\n   - 第4行：使用三元运算符 `value != null ? value : defaultConfigs.get(key).toUpperCase()`，如果defaultConfigs.get(key)返回null，会抛出NPE。\n   - 第6行：注释提到“让它抛NPE（快速失败原则）”，但未实际处理默认值可能为null的情况。\n2. 问题归类与判断：\n   - 使用三元运算符存在NPE风险，当defaultConfigs.get(key)为null时会立即抛出NullPointerException → M031（equals方法易抛NPE）→ 缺陷 → Q01-M031 → 扣0.5分\n   - \"快速失败原则\"只是注释中的理念描述，未真正解决问题，也没有反思NPE可能带来的实际风险 → Q01-其他（缺乏严谨性）\n3. 同类问题合并：\n   - 本代码块内只发现一处NPE相关风险，即三元运算符直接调用toUpperCase()前未判空defaultConfigs.get(key)。\n4. 分数计算：\n   - Q01扣0.5分（M031）\n5. 自我审查：\n   - ✓已输出思考和JSON\n   - ✓缺陷真实存在：defaultConfigs.get(key)可能为null导致NPE\n   - ✓扣分合理：单个M031问题，扣0.5分\n   - ✓同类未合并（只有一个问题）\n   - ✓命名/格式无问题，不归为改进建议\n【思考结束】\n\n```json\n{\n  \"总分\": \"9.5\",\n  \"整体描述\": \"发现1个缺陷需修改（NPE风险），无改进建议\",\n  \"各评审项扣分明细\": {\n    \"功能实现的正确性与健壮性\": {\n      \"评审项扣分\": \"0.5\",\n      \"扣分详情说明\": \"1个缺陷：三元运算符中defaultConfigs.get(key)可能为null引发NPE（Q01-M031），扣0.5分\"\n    },\n    \"安全性与潜在风险\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"是否符合最佳实践\":"
+    },
+    {
+      "case_id": "real_trap002_BuilderConstructor",
+      "case_name": "real_trap002_BuilderConstructor",
+      "dimension": "Q03_最佳实践",
+      "detected": true,
+      "should_detect": false,
+      "violations": [],
+      "expected_issues": [],
+      "score": 10,
+      "is_correct": false,
+      "is_tp": false,
+      "is_fp": true,
+      "is_fn": false,
+      "is_tn": false,
+      "elapsed_time": 27.90412712097168,
+      "raw_output": "【思考】\n1. 问题识别：\n   - 第7行：构造函数参数过多（5个），违反了S029建议（参数个数应控制在合理范围内）\n   - 第7行：虽然注释说明这是Builder模式，但参数数量仍略显冗长，可优化\n   - 第13-15行：Builder类未给出具体实现（只是注释），无法判断是否遵循Builder模式最佳实践\n   - 第10行：私有构造函数缺少空值校验，容易引发NPE\n2. 问题归类与判断：\n   - 参数数量过多遵循S029建议，属于代码设计优化范畴，应归为改进建议（Q03-S029），不扣分\n   - 构造函数无空值校验属于潜在风险，但当前代码选型是Builder模式，错误使用构造器则应避免数据库/传输过程中NPE，算作改进建议（Q01-其他），不扣分\n   - Builder类未见具体实现，需看当前提交是否为初期草稿，且本次无实质性代码变化，不计入缺陷\n3. 同类问题合并：\n   - 无同类问题需要合并\n4. 分数计算：\n   - 当前代码无明确缺陷，全部属于建议优化项，不扣分\n   - 总分保持10.0分\n5. 自我审查：\n   - ✓已输出思考和JSON\n   - ✓缺陷真实存在（但未违规应为建议）\n   - ✓扣分合理（无违规扣分）\n   - ✓同类已合并（参数调优归为一个建议）\n   - ✓命名/格式归为建议（符合规范）\n【思考结束】\n\n```json\n{\n  \"总分\": \"10.0\",\n  \"整体描述\": \"代码符合Builder模式结构设计，无功能缺陷，建议优化构造函数参数数量（S029）\",\n  \"各评审项扣分明细\": {\n    \"功能实现的正确性与健壮性\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无缺陷\"\n    },\n    \"安全性与潜在风险\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无缺陷\"\n    },\n    \"是否符合最佳实践\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"符合Builder模式结构，建议减少私有构造函数参数个数（S029）\"\n    },\n    \"性能与资源利用效率\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"代码规"
+    },
+    {
+      "case_id": "real_trap002_GatewayAuth",
+      "case_name": "real_trap002_GatewayAuth",
+      "dimension": "Q07_垂直越权",
+      "detected": true,
+      "should_detect": false,
+      "violations": [],
+      "expected_issues": [],
+      "score": 10,
+      "is_correct": false,
+      "is_tp": false,
+      "is_fp": true,
+      "is_fn": false,
+      "is_tn": false,
+      "elapsed_time": 5.960376739501953,
+      "raw_output": "【思考】\n1. 问题识别：\n   - 第4行：代码注释明确指出\"陷阱：代码中没有鉴权逻辑\"，但实际实现中未实现鉴权检查。\n   - 第6行：方法syncData()直接调用service.sync()，未进行权限校验，存在严重安全风险。\n   - 第3行：新增的@RestController和@RequestMapping(\"/internal/admin\")注解，属于新增功能，但需关注其安全性。\n2. 问题归类与判断：\n   - 鉴权缺失 → M098 → 缺陷 → Q02-M098 → 扣2分\n   - 安全性问题（无权限控制）→ Q02-M098 → 明确违反安全规范\n   - 网关层面拦截有误标为代码级逻辑 → 属于恶意依赖或文档误导，应视为功能逻辑缺陷，但安全风险更大；此点归类为使用了错误假设，属于严重逻辑缺陷\n3. 同类问题合并：\n   - 仅发现一处明显安全缺陷：权限控制缺失，无需合并\n4. 分数计算：\n   - Q02扣2分（Q02-M098）\n   - 总分 = 10 - 2 = 8分\n5. 自我审查：✓已输出思考和JSON ✓缺陷真实存在 ✓扣分合理 ✓同类问题只有一处无需合并 ✓命名/格式归为建议（实际未出现）✓符合最终格式要求\n\n【思考结束】\n\n```json\n{\n  \"总分\": \"8.0\",\n  \"整体描述\": \"发现1个严重安全缺陷（权限控制缺失），需立即修复\",\n  \"各评审项扣分明细\": {\n    \"功能实现的正确性与健壮性\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无相关问题\"\n    },\n    \"安全性与潜在风险\": {\n      \"评审项扣分\": \"2\",\n      \"扣分详情说明\": \"1个缺陷：接口未实现权限控制，违反M098（用户个人页面或功能必须进行权限控制校验），扣2分\"\n    },\n    \"是否符合最佳实践\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无相关问题\"\n    },\n    \"性能与资源利用效率\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无相关问题\"\n    },\n    \"代码规范性\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无相关问"
+    },
+    {
+      "case_id": "real_trap002_SharedData",
+      "case_name": "real_trap002_SharedData",
+      "dimension": "Q06_水平越权",
+      "detected": true,
+      "should_detect": false,
+      "violations": [],
+      "expected_issues": [],
+      "score": 10,
+      "is_correct": false,
+      "is_tp": false,
+      "is_fp": true,
+      "is_fn": false,
+      "is_tn": false,
+      "elapsed_time": 55.59572792053223,
+      "raw_output": "【思考】\n1. 问题识别：\n   - 第4行：代码逻辑中判断用户是否拥有文档访问权限时，使用了`doc.getOwnerId().equals(currentUser())`和`shareService.hasAccess(docId, currentUser())`两个条件的逻辑与（&&）操作。\n   - 第5行：尽管注释说明是Bug，但实际代码并未增加任何防御性编程，也未做NPE（空指针异常）处理。\n   - 第6行：未检查`doc`为null或`doc.getOwnerId()`为null的边界情况。\n   - 第7行：方法调用中的`currentUser()`也可能返回null（没有做Null检查）。\n   - 第8行：存在潜在的NPE（空指针异常）风险，代码未阻止空值的比较。\n\n2. 问题归类与判断：\n   - NPE（空指针异常）风险：使用`doc.getOwnerId().equals(currentUser())`时，如果`doc`为null或`doc.getOwnerId()`为null，会导致异常。此逻辑未对空值处理 → M031 → 缺陷 → Q01-M031 → 扣0.5分 \n   - 当前未在其他地方逻辑提供null检查，存在逻辑风险 → Q01-其他 → 扣0.5分（由于逻辑不够健壮的表达，仍归为一个问题）\n   - 第5行：增加注释说明使用了`shareService.hasAccess()`，但代码中并未注入`shareService`依赖 → 待确认逻辑是否完整（如果service不可用可能引发更严重问题，但目前是在逻辑层缺少检查，暂定为Q01-其他）\n   - 第7行：`currentUser()`若为null则在和`doc.getOwnerId()`调用equals时也可能出错 → 也是Q01-M031的NPE扩展情况\n   - 文档访问权限校验存在false逻辑可能（即如果当前用户是所有者且有分享访问权限）未明确定义操作行为 → 未违反具体规范但有逻辑模糊点\n\n3. 同类问题合并：\n   - 多处违反M031空指针判断规范：使用`object.equals(other)`而不做null检查 → 本次仅发现1个实例（但涉及多个可能的检查点，如doc.getOwnerId()、currentUser()）→ 对此类风险应统一审查\n"
+    },
+    {
+      "case_id": "real_trap002_dynamic_column",
+      "case_name": "real_trap002_dynamic_column",
+      "dimension": "Q02_安全性与潜在风险",
+      "detected": true,
+      "should_detect": false,
+      "violations": [],
+      "expected_issues": [],
+      "score": 10,
+      "is_correct": false,
+      "is_tp": false,
+      "is_fp": true,
+      "is_fn": false,
+      "is_tn": false,
+      "elapsed_time": 29.41633915901184,
+      "raw_output": "【思考】\n1. 问题识别：\n   - 第5行：validateOrderBy方法被删除，但代码中直接使用了orderBy变量构造SQL语句，发生SQL注入风险。\n   - 第7行：SQL拼接处存在拼接风险，虽然通过白名单校验了orderBy字段，但是没有进一步处理orderBy变量内容的合法性（例如特殊字符、空格等），可能出现潜在注入点。\n   - 第8行：SQL拼接中直接使用动态列名，虽然形式上通过白名单防注入，但可以进一步加强安全性，如增加参数化绑定。\n2. 问题归类与判断：\n   - 注入风险：虽然对orderBy参数做了白名单检查，但并未进行SQL关键字过滤或客户端处理，这种拼接操作在特定环境下仍然可能引发SQL注入问题，应视为高风险缺陷 → M100 → 缺陷 → Q02-M100 → 扣1分。\n   - 代码规范性：代码风格整体符合规范（如静态常量、低驼峰命名等），无明显命名/格式问题 → Q05不扣分。\n3. 同类问题合并：当前只发现一个注入缺陷，无重复问题需合并。\n4. 分数计算：Q02扣1分，总分为9.0分。\n5. 自我审查：✓已输出思考和JSON ✓缺陷真实存在（SQL拼接风险） ✓扣分合理 ✓同类已合并 ✓命名/格式归为建议（实际代码无此问题）\n\n【思考结束】\n\n{\n  \"总分\": \"9.0\",\n  \"整体描述\": \"发现1个缺陷需修改（SQL注入风险），无改进建议\",\n  \"各评审项扣分明细\": {\n    \"功能实现的正确性与健壮性\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无功能相关缺陷\"\n    },\n    \"安全性与潜在风险\": {\n      \"评审项扣分\": \"1\",\n      \"扣分详情说明\": \"1个缺陷：动态拼接SQL语句存在SQL注入风险（Q02-M100），扣1分\"\n    },\n    \"是否符合最佳实践\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"性能与资源利用效率\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"代码规范性\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    }\n  },"
+    },
+    {
+      "case_id": "real_trap003_reflection",
+      "case_name": "real_trap003_reflection",
+      "dimension": "Q02_安全性与潜在风险",
+      "detected": true,
+      "should_detect": false,
+      "violations": [],
+      "expected_issues": [],
+      "score": 10,
+      "is_correct": false,
+      "is_tp": false,
+      "is_fp": true,
+      "is_fn": false,
+      "is_tn": false,
+      "elapsed_time": 52.501245975494385,
+      "raw_output": "【思考】\n1. 问题识别：\n   - 第7行：使用了反射调用Class.forName()创建对象，未做白名单校验或安全防护，存在安全风险（M100、S044）\n   - 第8行：直接调用newInstance()可能抛出异常，对异常处理不合理（M084）\n   - 第9行：可能存在潜在的NPE（当PROCESSOR_MAP中值为null时）（M031）\n   - 第11行：方法声明throws Exception，过于宽泛，建议明确异常类型（S040）\n2. 问题归类与判断：\n   - 1处反射调用缺乏安全控制（Class.forName）→ M100 → 缺陷 → Q02-M100 → 扣1.0分\n   - 1处可能的NPE风险 → M031 → 缺陷 → Q01-M031 → 扣0.5分\n   - 1处不推荐的异常声明（throws Exception）→ S040 → 改进建议 → 不扣分\n   - 1处反射调用方式缺少封装或自检机制 → S044（风控/安全策略）→ 改进建议 → 不扣分\n3. 同类问题合并：\n   - 无同类问题需要合并，每个问题单列。\n4. 分数计算：\n   - Q02-M100（反射安全）扣1.0分\n   - Q01-M031（NPE风险）扣0.5分\n   - 总扣分=1.5分\n   - 最终总分 = 10 - 1.5 = 8.5分\n5. 自我审查：\n   ✓已输出思考和JSON  \n   ✓缺陷真实存在（反射未校验、NPE）  \n   ✓扣分合理（每个缺陷影响代码安全性或稳定性）  \n   ✓命名/格式未违反规则（规范命名）  \n   ✓不存在改进建议造成扣分（仅1个建议，不扣分）\n【思考结束】\n\n{\n  \"总分\": \"8.5\",\n  \"整体描述\": \"发现2个缺陷需修改（反射不安全、潜在NPE），1个改进建议\",\n  \"各评审项扣分明细\": {\n    \"功能实现的正确性与健壮性\": {\n      \"评审项扣分\": \"0.5\",\n      \"扣分详情说明\": \"1个缺陷：当PROCESSOR_MAP值为null时可能发生NPE（Q01-M031），扣0.5分\"\n    },\n    \"安全性与潜在风险\": {\n      \"评审项扣分\": \"1.0\",\n      \"扣分详情说明\": \"1个缺陷：使用Class.forName"
+    },
+    {
+      "case_id": "real_trap004_intentional_equals",
+      "case_name": "real_trap004_intentional_equals",
+      "dimension": "Q05_代码规范性",
+      "detected": false,
+      "should_detect": false,
+      "violations": [],
+      "expected_issues": [],
+      "score": 10.0,
+      "is_correct": true,
+      "is_tp": false,
+      "is_fp": false,
+      "is_fn": false,
+      "is_tn": true,
+      "elapsed_time": 7.656958341598511,
+      "raw_output": "【思考】\n1. 问题识别：\n   - 第3行：新增代码用于长度预检查，意图防止时序攻击；\n   - 第4行：在调用equals前对token和expected的长度进行比较；\n   - 第5行：长度不一致直接返回false，不继续比较；\n   - 第6行：若长度一致再调用equals方法进行字符逐位比较；\n   - 第2行：添加注释说明“使用普通equals是有意的”，并解释是为防止时序攻击。\n2. 问题归类与判断：\n   - 长度预检查逻辑用于对抗时序攻击 → 属于安全增强措施，未违反安全规则；但代码本身没有实际风险，逻辑正确且有意为之；\n   - 注释“使用普通equals是有意的”说明该行为是开发者有意识的设计而非疏忽，因此无缺陷；\n   - 检查逻辑合理，能有效降低时序攻击风险（攻击者通过比较时间差判断字符是否匹配）；\n   - 该代码是合规的安全增强，属于改进建议范围（因为无强制要求必须这么做，但在安全敏感场景值得推荐）；\n   - 但考虑到“防止时序攻击”是安全领域的有效实践，并且代码符合安全规范，不应标记为缺陷；\n   - 注释内容准确说明了开发者意图及防御目的，属于良好实践。\n3. 同类问题合并：\n   - 当前代码仅一处逻辑实现，虽然注释中提到了“防止时序攻击”这一安全设计，但不涉及重复问题；\n   - 因此无需合并同类项。\n4. 分数计算：\n   - 该行为是合理的设计，增强了安全性；\n   - 所有改动都是正面的，代码逻辑清晰、意图明确；\n   - 没有发现任何“缺陷”问题；\n   - 总体上是符合安全最佳实践的改进；\n   - 因此本段代码不扣分。\n5. 自我审查：✓已输出思考和JSON ✓缺陷真实存在（该逻辑有效提升安全性，没有实际缺陷） ✓扣分合理 ✓同类已检查 ✓命名/格式归为建议（未违反M/N/O规则，且注释清晰） ✓无明显改进建议（已优化）\n【思考结束】\n\n```json\n{\n  \"总分\": \"10.0\",\n  \"整体描述\": \"代码实现了安全增强功能，有效防止时序攻击，无缺陷问题\",\n  \"各评审项扣分明细\": {\n    \"功能实现的正确性与健壮性\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"所有逻辑符合预期，未发现功能错误\"\n    },\n    \"安全性与潜在风险\": {\n      \""
+    },
+    {
+      "case_id": "real_trap005_catch_exception",
+      "case_name": "real_trap005_catch_exception",
+      "dimension": "Q01_功能正确性与健壮性",
+      "detected": true,
+      "should_detect": false,
+      "violations": [],
+      "expected_issues": [],
+      "score": 10,
+      "is_correct": false,
+      "is_tp": false,
+      "is_fp": true,
+      "is_fn": false,
+      "is_tn": false,
+      "elapsed_time": 7.411142826080322,
+      "raw_output": "【思考】\n1. 问题识别：\n   - 第4行：方法签名由抛出IOException改为不抛异常（违反M029）\n   - 第6-10行：捕获Exception并记录日志后重新抛出TaskExecutionException，但没有明确区分业务异常与系统异常（符合S040要求，但可能引发处理复杂度）\n   - 第7行：`logger.error(...)`中的字符串拼接可能导致性能损耗（S009、S093）\n   - 第8行：依赖非具体异常类型来记录指标（可能不够精细）\n2. 问题归类与判断：\n   - 方法签名变更 → M029 → 缺陷 → Q03-M029 → 扣0.5分（虽然丢失了IOException信息，但整体是为了保证系统健壮性和统一异常处理）\n   - 字符串拼接日志 → S093 → 改进建议 → 不扣分\n   - 依赖Exception异常捕获 → S039（练习NPE等风险识别，此处场景符合统一处理原则）→ 改进建议 → 不扣分\n3. 同类问题合并：\n   - 针对日志记录中使用字符串拼接，虽然没有反复出现，但在S093，且是统一处理的建议，视为一处。\n4. 分数计算：\n   - Q03扣0.5分（方法签名变更导致接口不兼容）\n   - 总分 = 10 - 0.5 = 9.5分\n5. 自我审查：✓已输出思考和JSON；✓缺陷真实存在（签名变更）；✓扣分合理；✓命名/格式归为建议；✓意识到了方法签名变化的必要性但可能导致兼容问题，但仍属规范问题\n【思考结束】\n\n```json\n{\n  \"总分\": \"9.5\",\n  \"整体描述\": \"发现1个缺陷（方法签名变更影响兼容性），无改进建议\",\n  \"各评审项扣分明细\": {\n    \"功能实现的正确性与健壮性\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无\"\n    },\n    \"安全性与潜在风险\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无\"\n    },\n    \"是否符合最佳实践\": {\n      \"评审项扣分\": \"0.5\",\n      \"扣分详情说明\": \"1个缺陷：方法签名变更导致原异常声明消失（Q03-M029），影响调用方处理特定异常的能力，扣0.5分\"\n    },\n    \"性能与资源利用效率\": {\n"
+    },
+    {
+      "case_id": "real_trap006_double_check_lock",
+      "case_name": "real_trap006_double_check_lock",
+      "dimension": "Q04_性能与资源效率",
+      "detected": false,
+      "should_detect": false,
+      "violations": [],
+      "expected_issues": [],
+      "score": 10,
+      "is_correct": true,
+      "is_tp": false,
+      "is_fp": false,
+      "is_fn": false,
+      "is_tn": true,
+      "elapsed_time": 42.23383688926697,
+      "raw_output": "【思考】\n1. 问题识别：\n   - 第4行：使用了volatile关键字修饰connection变量，这在双重检查锁中是合理的。\n   - 第5行到第11行：实现了一个双重检查锁的单例模式获取连接的方法。\n   - 第6行和第10行：两次null检查，符合双重检查锁规范。\n   - 第7-10行：synchronized块内再次检查connection是否为null，确保线程安全。\n2. 问题归类与判断：\n   - 尽管采用双重检查锁机制是为了性能优化，但未使用static关键字标识方法，且该类本身没有被声明为static，不是严格意义上的单例类，但由于该类的作用域为ConnectionPool且只有一个成员变量，考虑其实现为单例获取连接的典型场景，该优化方案触发了S027关于“双重检查锁应使用volatile关键字”的建议。该优化未被标记为缺陷（违反M规则），但作为改进建议可提升代码健壮性（Q03-S027）。\n   - 命名风格无明显问题，符合lowerCamelCase规范（Q05-M004）。\n3. 同类问题合并：无同类问题。\n4. 分数计算：Q03扣分0.25分（S027），因改进项未增加规则违反，最终为Q03扣分0.25分，Q05无问题，总分 = 10 - 0.25 = 9.75分。\n5. 自我审查：✓已输出思考和JSON ✓缺陷真实存在 ✓扣分合理 ✓同类已合并 ✓命名/格式归为建议\n【思考结束】\n\n{\n  \"总分\": \"9.75\",\n  \"整体描述\": \"发现1个改进建议，提升双重检查锁的线程安全性\",\n  \"各评审项扣分明细\": {\n    \"功能实现的正确性与健壮性\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无功能缺陷\"\n    },\n    \"安全性与潜在风险\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无安全风险\"\n    },\n    \"是否符合最佳实践\": {\n      \"评审项扣分\": \"0.25\",\n      \"扣分详情说明\": \"1个改进建议：双重检查锁需使用volatile关键字（Q03-S027），扣0.25分\"\n    },\n    \"性能与资源利用效率\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无性能问"
+    },
+    {
+      "case_id": "real_trap007_debug_tostring",
+      "case_name": "real_trap007_debug_tostring",
+      "dimension": "Q02_安全性与潜在风险",
+      "detected": true,
+      "should_detect": false,
+      "violations": [],
+      "expected_issues": [],
+      "score": 10,
+      "is_correct": false,
+      "is_tp": false,
+      "is_fp": true,
+      "is_fn": false,
+      "is_tn": false,
+      "elapsed_time": 31.611816883087158,
+      "raw_output": "【思考】\n1. 问题识别：\n   - 第6行：在toString()方法中通过System.getProperty(\"env\", \"prod\")判断环境，可能在生产环境暴露敏感信息\n   - 第7行：存在硬编码的字符串\"dev\"，不符合M014规范（不允许魔法值）\n   - 第8行：代码中包含敏感信息apiKey，可能构成安全风险（M100）  \n   - 第14行：在循环或高频调用场景下频繁调用System.getProperty()可能影响性能（O009）\n2. 问题归类与判断：\n   - 硬编码环境名\"dev\" → M014 → 缺陷 → Q05-M014 → 扣0.5分\n   - 获取敏感信息apiKey并可能在开发环境展示 → M100 → 缺陷 → Q02-M100 → 扣1分\n   - System.getProperty在高频调用场景下性能影响 → O009 → 改进建议 → 不扣分\n3. 同类问题合并：无同类问题\n4. 分数计算：Q05扣0.5分 + Q02扣1分 = 总扣1.5分，总分8.5分\n5. 自我审查：✓已输出思考和JSON ✓缺陷真实存在 ✓扣分合理 ✓同类已合并 ✓命名/格式归为建议\n【思考结束】\n\n{\n  \"总分\": \"8.5\",\n  \"整体描述\": \"发现2个缺陷需修改（硬编码环境值、可能暴露敏感信息），1个改进建议\",\n  \"各评审项扣分明细\": {\n    \"功能实现的正确性与健壮性\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"安全性与潜在风险\": {\n      \"评审项扣分\": \"1\",\n      \"扣分详情说明\": \"1个缺陷：在开发环境可能暴露敏感信息apiKey（Q02-M100），扣1分\"\n    },\n    \"是否符合最佳实践\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"性能与资源利用效率\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"代码规范性\": {\n      \"评审项扣分\": \"0.5\",\n      \"扣分详情说明\": \"1个缺陷：硬编码字符串'dev'（Q05-M014），扣0.5分\"\n"
+    },
+    {
+      "case_id": "real_trap008_empty_catch",
+      "case_name": "real_trap008_empty_catch",
+      "dimension": "Q01_功能正确性与健壮性",
+      "detected": false,
+      "should_detect": false,
+      "violations": [],
+      "expected_issues": [],
+      "score": 10,
+      "is_correct": true,
+      "is_tp": false,
+      "is_fp": false,
+      "is_fn": false,
+      "is_tn": true,
+      "elapsed_time": 8.013832807540894,
+      "raw_output": "【思考】\n1. 问题识别：\n   - 第3行：原代码直接调用resource.close()方法，无异常处理\n   - 第4-10行：新代码添加了try-catch块来捕获IOException，但处理方式存在不规范问题\n   - 第8行：使用了logger.debug输出异常信息，假设存在logger变量\n2. 问题归类与判断：\n   - 新增的try-catch结构虽然意图是避免掩盖主异常，但当前实现的注释“清理代码：忽略关闭异常是合理的”表述模糊，实际可能掩盖关键异常，影响问题定位。→ S039（防止NPE是基本修养，注意产生场景）→ 改进建议 → 不扣分\n   - 使用debug级别日志记录异常信息，未进行日志抽象（如通过SLF4J）→ S041（谨慎记录日志）\n   - 逻辑本身存在小风险，但当前实现未违反M086（finally块必须对资源对象、流对象进行关闭）规则，因为原代码虽然没有try-catch但其行为也可接受，现在增加了try-catch，等价于未违反规则 → 不构成缺陷\n   - 约定上，Resource.close()常常作为必须保证执行的资源释放途径。ptoml中已约定“资源释放类代码不应抛出异`, 意义与M086不冲突，但我们应关注是否足够健壮。→ 审查中未发现明显违反M086或M087的场景，只认为是改进建议。\n   - 当前实现也为改进但不构成缺陷。假设logger已定义，不影响功能。\n3. 同类问题合并：\n   - 无同类问题需要合并。\n4. 分数计算：\n   - 无缺陷项，扣分为0\n   - 整体代码变更来看属于改进建议层面，但事无巨细不计入扣分项。存在提示信息S039（可能掩盖主异常）。\n5. 自我审查：✓已输出思考和JSON ✓缺陷真实存在 ✓扣分合理 ✓同类已合并 ✓命名/格式归为建议\n【思考结束】\n\n```json\n{\n  \"总分\": \"10.0\",\n  \"整体描述\": \"代码重构中新增了资源关闭的异常处理，逻辑合理但部分实现细节仍可优化（如日志记录级别及信息描述），无明显缺陷\",\n  \"各评审项扣分明细\": {\n    \"功能实现的正确性与健壮性\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无功能缺陷\"\n    },\n    \"安全性与潜在风险\": {\n      \"评审项扣分\":"
+    },
+    {
+      "case_id": "real_trap009_random",
+      "case_name": "real_trap009_random",
+      "dimension": "Q02_安全性与潜在风险",
+      "detected": true,
+      "should_detect": false,
+      "violations": [],
+      "expected_issues": [],
+      "score": 10,
+      "is_correct": false,
+      "is_tp": false,
+      "is_fp": true,
+      "is_fn": false,
+      "is_tn": false,
+      "elapsed_time": 9.4411039352417,
+      "raw_output": "【思考】\n1. 问题识别：\n   - 第4行：使用Random生成ID存在时序碰撞风险，若多个线程在相同毫秒级时间戳下生成ID，可能导致ID重复（违反O006）。\n   - 第5行：方法内部直接使用System.currentTimeMillis()，多次调用可能返回相同值，未考虑高并发场景（违反S031）。\n   - 第6行：未对Random.nextInt()的结果做任何加扰或UUID风格打散逻辑，易产生可预测性差的ID（违反S017）。\n   - 第7行：生成ID格式不具通用性，不易识别各部分含义（违反S001）。\n   - 第3行：未指定Random种子，将导致程序每次启动，随机数序列一致（违反S026）。\n2. 问题归类与判断：\n   - 线程安全隐患与高并发性能问题 → O006（线程安全与并发问题）→ 缺陷 → Q01-O006 → 扣1.0分\n   - 多次调用获取时间存在重复风险 → S031（循环体性能）→ 缺陷 → Q04-S031 → 扣0.5分\n   - ID生成不可靠或难以维护 → S001/S017（命名与原理规范）→ 改进建议 → 不扣分\n   - 对Random使用不严谨 → S026（随机数线程安全）→ 改进建议 → 不扣分\n3. 同类问题合并：\n   - O006问题仅在本方法内出现，无法跨方法合并；\n   - 但S031和S026同属于“时间获取和随机数使用不当”的模式，故合并为1条建议，举例说明第5行和第3行。\n4. 分数计算：\n   - Q01扣1.0分（O006）+ Q04扣0.5分（S031）= 总扣1.5分，最终得分为8.5分\n5. 自我审查：✓已输出思考和JSON ✓缺陷真实存在 ✓扣分合理 ✓同类已合并 ✓命名/格式归为建议\n【思考结束】\n\n```json\n{\n  \"总分\": \"8.5\",\n  \"整体描述\": \"发现2个缺陷需修改（1个线程安全风险、1个性能隐患），2个改进建议\",\n  \"各评审项扣分明细\": {\n    \"功能实现的正确性与健壮性\": {\n      \"评审项扣分\": \"1.0\",\n      \"扣分详情说明\": \"1个缺陷：高并发下generateId()方法存在时序碰撞风险（Q01-O006），扣1.0分\"\n    },\n    \"安全性与潜在风险\": {\n      \"评审项扣分\": \"0"
+    },
+    {
+      "case_id": "real_trap012_float_compare",
+      "case_name": "real_trap012_float_compare",
+      "dimension": "Q01_功能正确性与健壮性",
+      "detected": true,
+      "should_detect": false,
+      "violations": [],
+      "expected_issues": [],
+      "score": 10,
+      "is_correct": false,
+      "is_tp": false,
+      "is_fp": true,
+      "is_fn": false,
+      "is_tn": false,
+      "elapsed_time": 10.787228345870972,
+      "raw_output": "【思考】\n1. 问题识别：\n   - 第3行：使用double类型进行价格比较存在精度问题，可能导致意外的比较结果（违反M033）\n   - 第4行：TOLERANCE常量定义为double类型，相同问题\n   - 第5行：在isPriceEqual方法中直接使用Math.abs(price1 - price2)，未考虑浮点数精度误差\n2. 问题归类与判断：\n   - 使用float/double进行精确比较 → M033 → 缺陷 → Q01-M033 → 扣1分\n   - 价格比较逻辑中可能存在不符合业务或标准规范的误差容忍度实现 → Q01-其他 → 不扣分（因为有注释说明了场景是“业务场景”且明确说明是“1分钱误差”）\n3. 同类问题合并：浮点数精度问题变为1个问题，列出典型用法：Math.abs(price1 - price2)\n4. 分数计算：Q01扣1分；总分=10-1=9分\n5. 自我审查：✓已输出思考和JSON ✓缺陷真实存在（double比较精度问题） ✓扣分合理 ✓同类已合并 ✓命名/格式归为建议（TOLERANCE常量为合法上划线命名）"
+    },
+    {
+      "case_id": "real_trap014_sleep",
+      "case_name": "real_trap014_sleep",
+      "dimension": "Q04_性能与资源效率",
+      "detected": true,
+      "should_detect": false,
+      "violations": [],
+      "expected_issues": [],
+      "score": 10,
+      "is_correct": false,
+      "is_tp": false,
+      "is_fp": true,
+      "is_fn": false,
+      "is_tn": false,
+      "elapsed_time": 49.929107904434204,
+      "raw_output": "【思考】\n1. 问题识别：\n   - 第4行：rateLimiter.acquire()调用后紧接着判断tryAcquire()，逻辑存在冗余和错误\n   - 第5行：rateLimiter.tryAcquire()检查在acquire()之后执行，会导致实际处理的请求无法得到正确控制，逻辑混乱\n   - 第6-8行：在tryAcquire()不成功时使用Thread.sleep(100)进行人工延迟，该做法效率低并可能导致QPS延迟过高\n2. 问题归类与判断：\n   - 冗余且错误的限流逻辑 → Q01-M031（注意：实际应视为Q01-M031相关的逻辑错误而非直接的equals NPE）→ 缺陷 → 扣1分\n   - 使用粗糙方式延迟 → Q04-O006（无意义的Sleep和手动控制影响性能）→ 缺陷 → 扣0.5分\n3. 同类问题合并：\n   - 2个关于限流逻辑实现错误的问题归并为一个缺陷，典型示例：第4-8行存在逻辑冲突和无效代码。\n4. 分数计算：\n   - Q01扣1分（错误的限流逻辑） + Q04扣0.5分（低效延时方式） = 总扣1.5分，最终得分8.5分。\n5. 自我审查：\n   - ✓已输出思考和JSON\n   - ✓缺陷真实存在：rateLimiter.acquire()和tryAcquire()逻辑自相矛盾\n   - ✓扣分合理：对限流控制的逻辑理解错误引起功能问题，影响性能\n   - ✓同类已合并：两个限流实现问题合并为1个问题说明\n   - ✓命名/格式都符合标准（M004/M020/M023等未违反）\n【思考结束】\n\n```json\n{\n  \"总分\": \"8.5\",\n  \"整体描述\": \"发现2个缺陷需修改（含1个限流逻辑错误和1个效率问题）\",\n  \"各评审项扣分明细\": {\n    \"功能实现的正确性与健壮性\": {\n      \"评审项扣分\": \"1\",\n      \"扣分详情说明\": \"1个缺陷：存在限流逻辑错误（Q01-M031），即acquire()后又tryAcquire()造成功能失常，足以构成程序功能缺陷，扣1分\"\n    },\n    \"安全性与潜在风险\": {\n      \"评审项扣分\": \"0\",\n      \"扣分详情说明\": \"无问题\"\n    },\n    \"是否符合最佳实践\": {\n      \"评"
+    }
+  ]
+}

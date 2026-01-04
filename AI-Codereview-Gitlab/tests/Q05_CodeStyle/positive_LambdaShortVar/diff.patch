@@ -1,0 +1,13 @@
+--- before.java	2025-12-31 09:37:08.964503821 +0800
++++ after.java	2025-12-31 09:37:50.881490355 +0800
+@@ -1,5 +1,8 @@
+ public class MathUtils {
+     public List<Integer> doubleValues(List<Integer> inputs) {
+-        return inputs.stream().map(input -> input * 2).collect(Collectors.toList());
++        return inputs.stream()
++            .map(x -> x * 2)
++            .filter(n -> n > 0)
++            .collect(Collectors.toList());
+     }
+ }
+\ No newline at end of file

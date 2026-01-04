@@ -1,0 +1,16 @@
+--- before.java	2025-12-31 09:02:36.890825322 +0800
++++ after.java	2025-12-31 09:24:54.004631221 +0800
+@@ -1,5 +1,11 @@
+ public class ApiClient {
+-    public Response callApi(Request request) {
++    private final RateLimiter rateLimiter = RateLimiter.create(10.0);
++    
++    public Response callApi(Request request) throws InterruptedException {
++        rateLimiter.acquire();
++        if (!rateLimiter.tryAcquire()) {
++            Thread.sleep(100);
++        }
+         return httpClient.execute(request);
+     }
+ }
+\ No newline at end of file

@@ -1,0 +1,11 @@
+{
+  "case_id": "negative_UserPermission",
+  "dimension": "Q06_HorizontalPrivilege",
+  "rule_id": "R156",
+  "severity": "critical",
+  "should_detect": true,
+  "target_issues": [
+    "权限校验",
+    "越权风险"
+  ]
+}

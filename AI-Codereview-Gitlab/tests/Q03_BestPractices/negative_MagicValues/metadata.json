@@ -1,0 +1,12 @@
+{
+  "case_id": "negative_MagicValues",
+  "dimension": "Q03_BestPractices",
+  "should_detect": true,
+  "target_issues": [
+    "魔法值",
+    "硬编码",
+    "Magic Number"
+  ],
+  "severity": "medium",
+  "description": "大量魔法值硬编码"
+}

@@ -1,0 +1,26 @@
+--- before.java	2025-12-30 17:04:31.418852980 +0800
++++ after.java	2025-12-30 17:04:31.509659358 +0800
+@@ -14,11 +14,6 @@
+             return ResponseEntity.status(401).build();
+         }
+         
+-        User user = userService.findById(userId);
+-        if (!user.hasRole("ADMIN")) {
+-            return ResponseEntity.status(403).body(null);
+-        }
+-        
+         SystemConfig config = configService.getConfig();
+         return ResponseEntity.ok(config);
+     }
+@@ -31,11 +26,6 @@
+             return ResponseEntity.status(401).build();
+         }
+         
+-        User user = userService.findById(userId);
+-        if (!user.hasRole("ADMIN")) {
+-            return ResponseEntity.status(403).build();
+-        }
+-        
+         configService.updateConfig(config);
+         return ResponseEntity.ok().build();
+     }

@@ -1,0 +1,14 @@
+--- before.java	2025-12-30 17:04:31.360930722 +0800
++++ after.java	2025-12-30 17:04:31.360946263 +0800
+@@ -12,11 +12,6 @@
+             throw new DataNotFoundException("数据不存在");
+         }
+         
+-        String currentUserId = userContext.getCurrentUserId();
+-        if (!data.getOwnerId().equals(currentUserId)) {
+-            throw new UnauthorizedException("无权删除他人数据");
+-        }
+-        
+         dataDao.delete(dataId);
+     }
+ }
